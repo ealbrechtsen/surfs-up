@@ -4,27 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surf's Up</title>
+    <title>Document</title>
 
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="styleSheet" href="mockup.css">
+
 </head>
 
 <body>
-    <header>
-        <h1 id="fronttitle">Surf's Up</h1>
-    </header>
-    <main>
-        <ul>
-            <li>Inhold</li>
-            <li>Info</li>
-            <li>Yay, surfing</li>
-            <li>Hygge</li>
-            <li>Kontakt</li>
-        </ul>
-    </main>
-    <!-- JS Scripts -->
-    <script src="functions.js"></script>
+
+
+    <div class="img-container">
+        <img id="logo"
+            src="https://cdn.discordapp.com/attachments/1276469335539449866/1276469352769654855/file-xScxg3PVlNJWtf5r6UcqO6Kk.png?ex=66cc4739&is=66caf5b9&hm=659930dbc4727bfde830080b70c1fa38d23667afdf9df7e3f4fb9940be3e9fbf&">
+    </div>
+
+    <h3> - Din one-stop shop for udlejning af surfboards og udstyr!</h3>
+
+
+
+    <ul id="menu" class="dropdown">
+
+        <li>Hjem
+            <!-- Elementer i vores "submenu" SKAL!!! være
+                "pakket ind i vores "li" start-tag (Hjem)-->
+            <ul class="submenu">
+                <li>TestElementtttttttt</li>
+            </ul>
+        </li>
+
+        <li>Udlejning
+            <ul class="submenu">
+                <!-- Elementer i vores "submenu" SKAL!!! være
+                "pakket ind i vores "li" start-tag (Hjem)-->
+                <li>Boards</li>
+                <li>Våddragt</li>
+                <li>Udstyr</li>
+                <li>Undervisning - IKKE NØDVENDIG ENDNU</li>
+
+            </ul>
+        </li>
+
+        <li>Om os
+            <ul class="submenu">
+
+                <li>Hvem er vi?</li>
+                <li>FAQ</li>
+
+            </ul>
+        </li>
+
+        <li>Kontakt os</li>
+
+    </ul>
+
+    <p id="placeholder">En masse tekst omkring hvad vi tilbyder, bla bla bla bla</p>
+
+    <!--
+<img
+id="logo" 
+src="https://cdn.discordapp.com/attachments/1276469335539449866/1276469352769654855/file-xScxg3PVlNJWtf5r6UcqO6Kk.png?ex=66cc4739&is=66caf5b9&hm=659930dbc4727bfde830080b70c1fa38d23667afdf9df7e3f4fb9940be3e9fbf&"
+width="500px"
+height="500px"
+background-position = "center"
+>
+-->
+
+
+    <div class="produktoversigt">
+
+        <div class="produktbox" id="surf1">
+            <h4>Surfboard - soft-top</h4>
+            <button class="booking">Book nu</button>
+        </div>
+
+        <div class="produktbox" id="surf2">
+            <h4>Surfboard - hard-top</h4>
+            <button class="booking">Book nu</button>
+        </div>
+
+        <div class="produktbox" id="surf3">
+            <h4>Hætte test</h4>
+            <button class="booking">Book nu</button>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -1,4 +1,167 @@
-html, body {
+body /* Hele pagen */
+{
+    background-color: whitesmoke
+}
+
+#logo
+{
+    display: block;
+    margin: auto;
+    width: 450px;
+    height:280px;
+}
+
+.img-container {
+    /*background-color: rgba(226, 150, 69, 255);        SOLID FARVE*/
+    background-image: linear-gradient(rgba(226, 150, 69, 255), rgba(214,112,37,255))     /*Lys-orange til mørk orange*/
+
+    /*background-image: linear-gradient(rgba(81,227,255,255), rgba(12,126,197,255));    Lys blå til mørk blå (ocean)*/ 
+    /* HVILKE FARVER SKAL BRUGES (EVT SOLID?)*/
+}
+/*
+h1    Overskrift 
+{
+    color: orange;
+    
+    text-align: center;
+}
+*/
+
+h3
+{
+    text-align: center;
+}
+
+#menu /*   Container for menu  */
+{
+    list-style-type: none; /*Fjerner bullet points * */
+    border: 1px solid; /* Meget lille kant til menu-blok */
+    text-align:center;
+    background-color:slategrey;
+    
+}
+
+
+li /*   Top-menu-items  */
+{
+    display: inline-block; /*viser items i en række*/
+    color: white; /*text-farve*/
+    padding: 14px 45px;
+    font-weight: bold;
+    position: relative;
+}
+
+.submenu /* regler for vores submenu (selve dropdown)   */
+{
+    display: none; /*   sørger for at den er skjult by default*/
+    position: absolute; /*position ifht. "li" */
+    background-color: slategrey;
+    list-style-type: none; /* fjerner bulletpoints*/
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    width: 100; /*Sørger for at bredden matcher "parent" (altså MenuItem)*/
+    white-space: normal;
+    
+}
+
+.submenu li /*  Regler for selve ITEMS i "submenu"*/
+{
+    display: block;
+    padding: 10px 16px;
+    color: white;
+    text-align: left;
+    
+    /* nedenstående sørger for at elementer ikke er større end
+    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+.submenu li:hover /* hover effekt for dropdown items */
+{
+    background-color: black;
+}
+
+li:hover .submenu /* viser dropdown når cursor "hover" 
+                over menu-item (som alle er pakket ind i "li")*/
+{
+    display: block;
+}
+
+li:hover /* effekt for menu items */
+{
+    background-color: black;
+}
+
+#placeholder
+{
+    display: block;
+    font-size: large;
+    font-weight: bold;
+    margin: 50px;
+    text-align: center;
+}
+
+
+.produktoversigt
+{
+    text-align: center;
+    display: flex; /* Brug af "flexbox" istedet for "in-line" block */
+    justify-content: center;
+    gap: 10px;
+}
+
+.produktbox
+{
+    width: 350px;
+    height: 250px;
+    background-size: contain; /* skalere billedet så det ikke bliver cropped*/
+    background-position: center; /* Centrerer billedet fra midten */
+    background-repeat: no-repeat;
+    border: 1px solid #ccc; /* Lave en grænse så man kan se start og slut*/
+    
+    display: flex; /* afgører hvordan containerens elementer kan blive lagt ud - Række, kolonne osv */
+    flex-direction: column; /* Elementer i kolonne. Header øverst, knap nederst */
+    justify-content: space-between; /* Knappen ligger i bunden via "space-between" */
+    padding: 10px; /* Så knappen ikke rør kanten */
+    box-sizing: border-box; /*sørger for at indholdet er samme størrelse INKLUSIV padding*/
+}
+
+.booking {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.booking:hover
+{
+    transition: 0.3s;
+    background-color: rgb(171, 87, 56);
+}
+
+#surf1
+{
+    background-image: url('https://www.primalsurf.co.nz/site/wp-content/uploads/2022/10/fade3-l.jpg');
+
+}
+
+#surf2
+{
+    background-image: url('https://i.pinimg.com/736x/32/89/72/3289726342ef50ed542b27f5e44f351e.jpg');
+}
+
+#surf3
+{
+    background-image: url('https://www.surf-zone.dk/app/webroot/uploads/gul-3mm-surf-hood-sort.jpg?timestamp=1492446092');
+}
+/* html, body {
     margin: 0;
     height: 100vh;
 }
@@ -12,4 +175,4 @@ header {
     margin: 0;
     padding: 10px;
     color: white;
-}
+} */
