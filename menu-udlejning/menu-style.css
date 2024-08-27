@@ -1,0 +1,85 @@
+body
+{
+    background-color: whitesmoke;
+}
+
+#logo
+{
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    height: 200px;
+}
+
+#logo-text
+{
+    display: block;
+    margin: auto;
+    object-fit: contain;
+    height: 100px;
+}
+
+ .img-container {
+    /*background-color: rgba(226, 150, 69, 255);        SOLID FARVE*/
+    background-image: linear-gradient(rgba(226, 150, 69, 255), rgba(214,112,37,255))     /*Lys-orange til mørk orange*/
+
+    
+
+    /*background-image: linear-gradient(rgba(81,227,255,255), rgba(12,126,197,255));    Lys blå til mørk blå (ocean)*/ 
+    /* HVILKE FARVER SKAL BRUGES (EVT SOLID?)*/
+}
+
+h1
+{
+    text-align: center;
+    color: rgb(153, 127, 255);
+}
+
+.boardoversigt
+{
+    text-align: center;
+    display: flex; /* Brug af "flexbox" istedet for "in-line" block */
+    justify-content: left;
+    gap: 10px;
+}
+
+.boardbox
+{
+    width: 350px;
+    height: 250px;
+    background-size: contain; /* skalere billedet så det ikke bliver cropped*/
+    background-position: center; /* Centrerer billedet fra midten */
+    background-repeat: no-repeat;
+    border: 1px solid #ccc; /* Lave en grænse så man kan se start og slut*/
+    
+    display: flex; /* afgører hvordan containerens elementer kan blive lagt ud - Række, kolonne osv */
+    flex-direction: column; /* Elementer i kolonne. Header øverst, knap nederst */
+    justify-content: space-between; /* Knappen ligger i bunden via "space-between" */
+    padding: 10px; /* Så knappen ikke rør kanten */
+    box-sizing: border-box; /*sørger for at indholdet er samme størrelse INKLUSIV padding*/
+}
+
+.boardbooking 
+{
+    align-self: center;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#board1
+{
+    background-image: url('https://www.primalsurf.co.nz/site/wp-content/uploads/2022/10/fade3-l.jpg');
+}
+
+#board2
+{
+    background-image: url('https://i.pinimg.com/736x/32/89/72/3289726342ef50ed542b27f5e44f351e.jpg');
+}
+
+.wetoversigt
+{
+    
+}

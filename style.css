@@ -3,17 +3,24 @@ body /* Hele pagen */
     background-color: whitesmoke
 }
 
-#logo
+#logo /* logo til top til venstre */
 {
-    display: block;
-    margin: auto;
-    width: 450px;
-    height:280px;
+    object-fit: contain;
+    height: 100px;
+}
+
+#logo-text /* text til venstre for logo */
+{
+    object-fit: contain;
+    height: 40px;
+    display: inline-block;
 }
 
 .img-container {
     /*background-color: rgba(226, 150, 69, 255);        SOLID FARVE*/
-    background-image: linear-gradient(rgba(226, 150, 69, 255), rgba(214,112,37,255))     /*Lys-orange til mørk orange*/
+    /*background-image: linear-gradient(rgba(226, 150, 69, 255), rgba(214,112,37,255))*/     /*Lys-orange til mørk orange*/
+
+    background-image: linear-gradient(45deg, #CC7723, #DE8C3A);
 
     /*background-image: linear-gradient(rgba(81,227,255,255), rgba(12,126,197,255));    Lys blå til mørk blå (ocean)*/ 
     /* HVILKE FARVER SKAL BRUGES (EVT SOLID?)*/
@@ -34,6 +41,7 @@ h3
 
 #menu /*   Container for menu  */
 {
+
     list-style-type: none; /*Fjerner bullet points * */
     border: 1px solid; /* Meget lille kant til menu-blok */
     text-align:center;
@@ -161,6 +169,59 @@ li:hover /* effekt for menu items */
 {
     background-image: url('https://www.surf-zone.dk/app/webroot/uploads/gul-3mm-surf-hood-sort.jpg?timestamp=1492446092');
 }
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 10px;
+}
+
+.logo-button {
+    text-align: center;
+    margin-bottom: 20px; /* Juster afstand mellem logo og sektioner */
+}
+
+.logo-button img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.container {
+    text-align: center; /* Centrere sektionerne horisontalt */
+}
+
+.section {
+    display: inline-block; /* Gør sektionerne inline-blocks */
+    vertical-align: top; /* Juster sektioner vertikalt */
+    width: 200px; /* Angiv en bredde for hver sektion */
+    margin: 10px; /* Juster afstand mellem sektioner */
+    text-align: left; /* Juster tekst til venstre indenfor sektionen */
+}
+
+h2 {
+    margin-top: 20px; /* Fjerner standard marginen øverst på overskrifterne */
+    margin-bottom: 10px; /* Læg til afstand mellem overskriften og paragrafen */
+}
+
+p {
+    margin-top: 0; /* Fjerner standard marginen ovenfor paragrafen */
+}
+
+#logo-bottom 
+{
+ width: 150px;
+ height: 150px;
+ 
+
+}
+
+#text-bottom 
+{
+    width:200px;
+
+}
+
 /* html, body {
     margin: 0;
     height: 100vh;
