@@ -1,29 +1,26 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <nav class="nav-top">
     <div class="header-container">
         <div class="img-container">
-            <img id="logo" src="images/image-logo.png" alt="Logo">
-            <img id="logo-text" src="images/image-logo-text.png" alt="Logo Text">
+            <img id="logo" src="~/images/image-logo.png" alt="Logo">
+            <img id="logo-text" src="~/images/image-logo-text.png" alt="Logo Text">
         </div>
         <ul id="menu" class="dropdown">
-            <li>
-                Hjem
+            <li>Hjem
                 <ul class="submenu">
-                    <li>TestElement</li>
+                    <li><a asp-controller="home" asp-action="index">TestElement</a></li>
                 </ul>
             </li>
-            <li>
-                Udlejning
+            <li>Udlejning
                 <ul class="submenu">
                     <li><a asp-controller="rental" asp-action="boards">Boards</a></li>
-                    <li><a asp-controller="rental" asp-action="wetsuit">Våddragter</a></li>
+                    <li><a asp-controller="rental" asp-action="wetsuit">Våddragt</a></li>
                     <li><a asp-controller="rental" asp-action="equipment">Udstyr</a></li>
                     <li>Undervisning - IKKE NØDVENDIG ENDNU</li>
                 </ul>
             </li>
-            <li>
-                Om os
+            <li>Om os
                 <ul class="submenu">
                     <li>Hvem er vi?</li>
                     <li>FAQ</li>
@@ -34,46 +31,43 @@
     </div>
 </nav>
 
+<h1>
+    Oversigt over boads
+</h1>
 
 
-<h3> - Din one-stop shop for udlejning af surfboards og udstyr!</h3>
+<!-- BOARD Container -->
 
-
-
-
-<p id="placeholder">En masse tekst omkring hvad vi tilbyder, bla bla bla bla</p>
-
-<!--
-<img
-id="logo"
-src="https://cdn.discordapp.com/attachments/1276469335539449866/1276469352769654855/file-xScxg3PVlNJWtf5r6UcqO6Kk.png?ex=66cc4739&is=66caf5b9&hm=659930dbc4727bfde830080b70c1fa38d23667afdf9df7e3f4fb9940be3e9fbf&"
-width="500px"
-height="500px"
-background-position = "center"
->
--->
-
-
-<div class="produktoversigt">
-
-    <div class="produktbox" id="surf1">
-        <h4>Surfboard - soft-top</h4>
-        <button class="booking">Udlej nu</button>
+<div class="boardoversigt">
+    <div class="boardbox" id="board1">
+        <h4>The MiniLog </h4>
+        <img src="~/images/board1.jpg">
+        <a>
+            <button class="booking">Lej board</button>
+        </a>
     </div>
 
-    <div class="produktbox" id="surf2">
-        <h4>Surfboard - hard-top</h4>
-        <button class="booking">Udlej nu</button>
+    <div class="boardbox" id="board2">
+        <h4>The Wide Glider</h4>
+        <img src="~/images/board2.jpg">
+        <button class="booking">Lej board</button>
+        </a>
     </div>
 
-    <div class="produktbox" id="surf3">
-        <h4>Hætte test</h4>
-        <button class="booking">Udlej nu</button>
+    <div class="boardbox" id="board3">
+        <h4>The Golden Ratio</h4>
+        <img src="~/images/Mahi-Mahi.jpg">
+        <button class="booking">Lej board</button>
+        </a>
+    </div>
+
+    <div class="boardbox" id="board4">
+        <h4>Mahi Mahi</h4>
+        <img src="~/images/Mahi-Mahi.jpg">
+        <button class="booking">Lej board</button>
+        </a>
     </div>
 </div>
-
-<!--Det nederste af siden begynder her-->
-<hr>
 
 <div class="container">
     <div class="bottom">
@@ -91,6 +85,7 @@ background-position = "center"
             Brugtmarked <br>
             Nytmarked <br>
         </p>
+
     </div>
 
     <div class="section">
