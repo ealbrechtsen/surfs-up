@@ -1,3 +1,5 @@
+@model List<Product>;
+
 <nav class="nav-top">
     <div class="header-container">
         <div class="img-container">
@@ -33,41 +35,20 @@
     Oversigt over boads
 </h1>
 
-
 <!-- BOARD Container -->
-
 <div class="boardoversigt">
-    <div class="boardbox" id="board1">
-        <h4>The MiniLog</h4>
-        <img src="~/images/board1.jpg">
-        <a asp-controller="boards" asp-action="board">
-            <button class="booking">Lej board</button>
-        </a>
-    </div>
 
-    <div class="boardbox" id="board2">
-        <h4>The Wide Glider</h4>
-        <img src="~/images/board2.jpg">
-        <a asp-controller="boards" asp-action="board2">
-            <button class="booking">Lej board</button>
-        </a>
-    </div>
+    @foreach (var board in Model)
+    {
+        <div class="boardbox" id="board1">
+            <h4>@board.Name</h4>
+            <img src="@board.ImagePath">
+            <a asp-controller="rental" asp-action="board" asp-route-id="@board.ProductId">
+                <button class="booking">Lej board</button>
+            </a>
+        </div>
+    }
 
-    <div class="boardbox" id="board3">
-        <h4>The Golden Ratio</h4>
-        <img src="~/images/Mahi-Mahi.jpg">
-        <a asp-controller="boards" asp-action="board3">
-            <button class="booking">Lej board</button>
-        </a>
-    </div>
-
-    <div class="boardbox" id="board4">
-        <h4>Mahi Mahi</h4>
-        <img src="~/images/Mahi-Mahi.jpg">
-        <a asp-controller="boards" asp-action="board4">
-            <button class="booking">Lej board</button>
-        </a>
-    </div>
 </div>
 
 <div class="container">

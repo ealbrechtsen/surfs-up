@@ -1,3 +1,5 @@
+@model Product;
+
 <nav class="nav-top">
     <div class="header-container">
         <div class="img-container">
@@ -28,6 +30,30 @@
         </ul>
     </div>
 </nav>
+
+<div id="boardInformation">
+    <h1>@Model.Name</h1>
+    <img src="@Model.ImagePath">
+    <h2>Nr. @Model.ProductId</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Pris</th>
+            <th>Længde</th>
+            <th>Bredde</th>
+            <th>Tykkelse</th>
+            <th>Volumen</th>
+        </tr>
+        <tr>
+            <td>@Model.Type</td>
+            <td>@Model.Price DKK</td>
+            <td>@Model.Length"</td>
+            <td>@Model.Width"</td>
+            <td>@Model.Thickness"</td>
+            <td>@Model.Volume"</td>
+        </tr>
+    </table>
+</div>
 
 <div class="container">
     <div class="bottom">

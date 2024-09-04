@@ -4,6 +4,8 @@ body {
     background-color: whitesmoke;
     margin: 0;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #logo
@@ -284,7 +286,36 @@ p {
 
 }
 
-/* ------------------- MENU STYLING -------------------- */
+/* ----------------------------------------------------- SURFBOARD PAGES ---------------------------------------------------------- */
+
+#boardInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+#boardInformation table {
+    display: table;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+#boardInformation td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+#boardInformation img {
+    object-fit: contain;
+    height: 50%;
+    max-height: 400px;
+}
+
+/* ------------------------------------------------------- MENU STYLING ------------------------------------------------------------ */
 
 body {
     background-color: whitesmoke;
@@ -435,8 +466,9 @@ li:hover
     text-align: center;
     display: flex;
     /* Brug af "flexbox" istedet for "in-line" block */
-    justify-content: left;
+    justify-content: center;
     gap: 10px;
+    flex: 1;
 }
 
 .boardbox {
