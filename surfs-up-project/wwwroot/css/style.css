@@ -120,12 +120,19 @@ li
 
 }
 
+.submenu a {
+    padding: 10px 16px;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
 .submenu li
 
 /*  Regler for selve ITEMS i "submenu"*/
     {
     display: block;
-    padding: 10px 16px;
+    padding: 0;
     color: white;
     text-align: left;
 
@@ -247,6 +254,7 @@ hr {
 .container {
     text-align: center;
     /* Centrere sektionerne horisontalt */
+    margin-top: auto;
 }
 
 .section {
@@ -386,80 +394,6 @@ body {
 h1 {
     text-align: center;
     color: black;
-}
-
-
-li
-
-/*   Top-menu-items  */
-    {
-    display: inline-block;
-    /*viser items i en række*/
-    color: white;
-    /*text-farve*/
-    /*padding: 45px 30px;*/
-    padding: 20px 30px;
-    font-weight: bold;
-    position: relative;
-}
-
-.submenu
-
-/* regler for vores submenu (selve dropdown)   */
-    {
-    display: none;
-    /*   sørger for at den er skjult by default*/
-    position: absolute;
-    /*position ifht. "li" */
-    background-color: orange;
-    list-style-type: none;
-    /* fjerner bulletpoints*/
-    padding: 0;
-    margin: 0;
-    top: 100%;
-    left: 0;
-    min-width: 100%;
-    width: 100;
-    /*Sørger for at bredden matcher "parent" (altså MenuItem)*/
-    white-space: normal;
-
-}
-
-.submenu li
-
-/*  Regler for selve ITEMS i "submenu"*/
-    {
-    display: block;
-    padding: 10px 16px;
-    color: white;
-    text-align: left;
-
-    /* nedenstående sørger for at elementer ikke er større end
-    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
-    overflow-wrap: break-word;
-    word-break: break-all;
-}
-
-.submenu li:hover
-
-/* hover effekt for dropdown items */
-    {
-    background-color: black;
-}
-
-li:hover .submenu
-
-/* viser dropdown når cursor "hover" 
-                over menu-item (som alle er pakket ind i "li")*/
-    {
-    display: block;
-}
-
-li:hover
-
-/* effekt for menu items */
-    {
-    background-color: orange;
 }
 
 .boardoversigt {
