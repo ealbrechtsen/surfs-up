@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levering</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Tilføj en CSS-fil, hvis du vil style formularen -->
+</head>
+<body>
+    <h1>Kontaktformular</h1>
+
+    <form action="submit_form.php" method="post">
+        <!-- Navn -->
+        <div>
+            <label for="firstName">Navn:</label>
+            <input type="text" id="firstName" name="firstName" required>
+        </div>
+
+        <!-- Efternavn -->
+        <div>
+            <label for="lastName">Efternavn:</label>
+            <input type="text" id="lastName" name="lastName" required>
+        </div>
+
+        <!-- E-mail -->
+        <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Telefonnummer -->
+        <div>
+            <label for="phone">Telefonnummer:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <!-- Adresse -->
+        <div>
+            <label for="address">Adresse:</label>
+            <input type="text" id="address" name="address">
+        </div>
+
+        <!-- Postnummer -->
+        <div>
+            <label for="zipCode">Postnummer:</label>
+            <input type="text" id="zipCode" name="zipCode">
+        </div>
+
+        <!-- By -->
+        <div>
+            <label for="city">By:</label>
+            <input type="text" id="city" name="city">
+        </div>
+
+        <!-- Send-knap -->
+        <div>
+            <button type="submit">Send</button>
+        </div>
+    </form>
+</body>
+</html>
