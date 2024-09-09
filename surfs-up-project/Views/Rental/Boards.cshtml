@@ -10,11 +10,11 @@
     @foreach (var board in Model)
     {
         <div class="boardbox" id="board1">
+            <a asp-controller="rental" asp-action="board" asp-route-id="@board.ProductId">
             <h4>@board.Name</h4>
             <img src="@board.ImagePath">
-            <a asp-controller="rental" asp-action="board" asp-route-id="@board.ProductId">
-                <button class="booking">Lej board</button>
             </a>
+                <button class="booking">Lej board</button>
         </div>
     }
 
