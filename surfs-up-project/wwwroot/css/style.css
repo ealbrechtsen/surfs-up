@@ -76,7 +76,6 @@ h3 {
     display: flex;
     text-align: center;
     background-color: #CC7723;
-    /*height: 100px;*/
     height: 60px;
     margin-right: 120px;
     cursor: pointer;
@@ -96,6 +95,12 @@ li
     padding: 20px 30px;
     font-weight: bold;
     position: relative;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .submenu
@@ -122,7 +127,6 @@ li
 
 .submenu a {
     padding: 10px 16px;
-    width: 100%;
     display: inline-block;
     box-sizing: border-box;
 }
@@ -135,11 +139,6 @@ li
     padding: 0;
     color: white;
     text-align: left;
-
-    /* nedenstående sørger for at elementer ikke er større end
-    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
-    overflow-wrap: break-word;
-    word-break: break-all;
 }
 
 .submenu li:hover
@@ -163,6 +162,13 @@ li:hover
     {
     background-color: orange;
 
+}
+
+li a {
+    /* nedenstående sørger for at elementer ikke er større end
+    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 #placeholder {
