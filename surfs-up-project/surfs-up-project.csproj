@@ -8,17 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\boards\board1.cshtml" />
-    <Content Remove="Views\menu-udlejning\boards.cshtml" />
-    <Content Remove="Views\menu-udlejning\udstyr.cshtml" />
-    <Content Remove="Views\menu-udlejning\våddragt.cshtml" />
+    <Compile Remove="Views\boards\**" />
+    <Compile Remove="Views\menu-udlejning\**" />
+    <Content Remove="Views\boards\**" />
+    <Content Remove="Views\menu-udlejning\**" />
+    <EmbeddedResource Remove="Views\boards\**" />
+    <EmbeddedResource Remove="Views\menu-udlejning\**" />
+    <None Remove="Views\boards\**" />
+    <None Remove="Views\menu-udlejning\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\boards\board1.cshtml" />
-    <None Include="Views\menu-udlejning\boards.cshtml" />
-    <None Include="Views\menu-udlejning\udstyr.cshtml" />
-    <None Include="Views\menu-udlejning\våddragt.cshtml" />
     <None Include="wwwroot\css\menu-style.css" />
   </ItemGroup>
 
