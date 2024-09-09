@@ -9,12 +9,13 @@
 
     @foreach (var board in Model)
     {
-        <div class="boardbox" id="board1">
+        <div class="boardbox" id="board-@board.ProductId">
             <a asp-controller="rental" asp-action="board" asp-route-id="@board.ProductId">
-            <h4>@board.Name</h4>
-            <img src="@board.ImagePath">
+                <h3>@board.Name</h3>
+                <img src="@board.ImagePath">
+                <span>@board.Price kr.</span>
             </a>
-                <button class="booking">Lej board</button>
+            <button class="add-to-basket-button">Læg i kurv</button>
         </div>
     }
 

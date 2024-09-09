@@ -329,7 +329,7 @@ th {
     max-height: 400px;
 }
 
-/* ------------------------------------------------------- MENU STYLING ------------------------------------------------------------ */
+/* ------------------------------------------------------- SURFBOARDS ------------------------------------------------------------ */
 
 h1 {
     text-align: center;
@@ -360,22 +360,46 @@ h1 {
     /*sørger for at indholdet er samme størrelse INKLUSIV padding*/
 }
 
+.boardbox:hover button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .boardbox a {
     background-size: contain;
     /* skalér billedet så det ikke bliver cropped*/
     height: calc(100% - 36px);
     width: 100%;
     display: block;
-}
-
-.boardbox h4 {
-    margin: 4%;
     color: black;
 }
 
+.boardbox h3 {
+    margin: 4%;
+}
+
 .boardbox img {
+    height: calc(100% - 80px);
     width: 100%;
     object-fit: contain;
+}
+
+.add-to-basket-button {
+    width: 100%;
+    align-self: center;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.add-to-basket-button:hover {
+    background-color: rgb(171, 87, 56);
 }
 
 .wetoversigt {
@@ -385,6 +409,8 @@ h1 {
     justify-content: left;
     gap: 10px;
 }
+
+/* ------------------------------------------------------- VÅDDRAGTER ------------------------------------------------------------ */
 
 .wetbox {
     width: 350px;
