@@ -1,3 +1,15 @@
-﻿<div>
+﻿@model List<ShoppingCartItem>;
+
+<div>
     <h1>Indkøbskurv</h1>
+    <div>
+        @foreach (var item in Model)
+        {
+            <ul>
+                <li>ShoppingCartItem.Id: @item.Id</li>
+                <li>ShoppingCartItem.Product.ProductId: @item.Product.ProductId</li>
+                <li>ShoppingCartItem.Amount: @item.Amount</li>
+            </ul>
+        }
+    </div>
 </div>

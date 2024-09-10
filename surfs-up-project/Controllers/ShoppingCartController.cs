@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using surfs_up_project.Models;
 
 namespace surfs_up_project.Controllers
 {
@@ -6,7 +7,8 @@ namespace surfs_up_project.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var items = ShoppingCart.GetItems();
+            return View(items);
         }
     }
 }

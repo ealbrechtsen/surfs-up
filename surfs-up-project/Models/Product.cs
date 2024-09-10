@@ -20,6 +20,18 @@ namespace surfs_up_project.Models
 
         public double Price { get; set; }
 
+        public Product(int id, string name, string imagePath, double length, double width, double thickness, double volume, string type, double price)
+        {
+            ProductId = id;
+            Name = name;
+            ImagePath = imagePath;
+            Length = length;
+            Width = width;
+            Thickness = thickness;
+            Volume = volume;
+            Type = type;
+            Price = price;
+        }
     }
 
 }
