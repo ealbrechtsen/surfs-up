@@ -35,7 +35,7 @@
                 <input type="text" id="quantity-input" value="1" readonly>
                 <button class="quantity-button" onclick="increaseQuantity()">+</button>
             </div>
-            <button class="add-to-basket-button">Læg i kurv</button>
+            <button id="køb">Læg i kurv</button>
         </div>
     </div>
 
@@ -90,7 +90,7 @@
             border-radius: 5px;
         }
 
-        .add-to-basket-button {
+            #køb {
             background-color: green; /* Grøn farve */
             color: black;
             padding: 15px 30px;
@@ -102,7 +102,7 @@
             margin-top: 10px;
         }
 
-            .add-to-basket-button:hover {
+            #køb:hover {
                 background-color: orange; /* Mørkere grøn ved hover */
             }
     </style>
@@ -123,4 +123,3 @@
         }
     </script>
 </div>
-
