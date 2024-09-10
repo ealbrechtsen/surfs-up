@@ -15,7 +15,29 @@
                 <img src="@board.ImagePath">
                 <span>@board.Price kr.</span>
             </a>
-            <button class="add-to-basket-button">Læg i kurv</button>
+            
+            @using (Html.BeginForm("Add", "ShoppingCart", FormMethod.Post))
+            {
+                <div>
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name)
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+
+                <div>
+                    @Html.LabelFor(m => m.Age)
+                    @Html.TextBoxFor(m => m.Age)
+                    @Html.ValidationMessageFor(m => m.Age)
+                </div>
+
+                <button type="submit">Submit</button>
+            }
+
+            <form asp-controller="ShoppingCart" asp-action="Index" method="post">
+                <input asp-for="@board" name="board" value="@board" hidden />
+                <input name="amount" value="1" hidden />
+                <button type="submit" class="add-to-basket-button">Læg i kurv</button>
+            </form>
         </div>
     }
 

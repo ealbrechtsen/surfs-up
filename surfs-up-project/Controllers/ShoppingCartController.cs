@@ -10,5 +10,12 @@ namespace surfs_up_project.Controllers
             var items = ShoppingCart.GetItems();
             return View(items);
         }
+
+        [HttpPost]
+        public ActionResult Add(Product product, int amount)
+        {
+            ShoppingCart.AddItem(product, amount);
+            return View();
+        }
     }
 }
