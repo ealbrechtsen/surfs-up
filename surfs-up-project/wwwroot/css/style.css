@@ -8,46 +8,35 @@ body {
     flex-direction: column;
 }
 
-#logo
-
-/* logo til top til venstre */
-    {
-    object-fit: contain;
-    height: 100px;
-}
-
-#logo-text
-
-/* text til venstre for logo */
-    {
-    object-fit: contain;
-    height: 40px;
-    display: inline-block;
-    margin-top: 30px;
-}
-
 .img-container {
+    background-color: #CC7723;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 100px;
     /*background-color: rgba(226, 150, 69, 255);        SOLID FARVE*/
     /*background-image: linear-gradient(rgba(226, 150, 69, 255), rgba(214,112,37,255))*/
     /*Lys-orange til mørk orange*/
 
     /*background-image: linear-gradient(45deg, #CC7723, #DE8C3A);*/
-    background-color: #CC7723;
-    display: flex;
-    align-items: center;
-
     /*background-image: linear-gradient(rgba(81,227,255,255), rgba(12,126,197,255));    Lys blå til mørk blå (ocean)*/
     /* HVILKE FARVER SKAL BRUGES (EVT SOLID?)*/
 }
 
-/*
-h1    Overskrift 
-{
-    color: orange;
-    
-    text-align: center;
+#logo {
+    /* logo til top til venstre */
+    object-fit: contain;
+    height: 100%;
 }
-*/
+
+#logo-text {
+    /* text til venstre for logo */
+    object-fit: contain;
+    height: 40px;
+    display: inline-block;
+    margin-top: 10px;
+}
 
 .header-container {
     display: flex;
@@ -76,7 +65,6 @@ h3 {
     display: flex;
     text-align: center;
     background-color: #CC7723;
-    /*height: 100px;*/
     height: 60px;
     margin-right: 120px;
     cursor: pointer;
@@ -96,6 +84,12 @@ li
     padding: 20px 30px;
     font-weight: bold;
     position: relative;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .submenu
@@ -122,7 +116,6 @@ li
 
 .submenu a {
     padding: 10px 16px;
-    width: 100%;
     display: inline-block;
     box-sizing: border-box;
 }
@@ -135,11 +128,6 @@ li
     padding: 0;
     color: white;
     text-align: left;
-
-    /* nedenstående sørger for at elementer ikke er større end
-    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
-    overflow-wrap: break-word;
-    word-break: break-all;
 }
 
 .submenu li:hover
@@ -163,6 +151,13 @@ li:hover
     {
     background-color: orange;
 
+}
+
+li a {
+    /* nedenstående sørger for at elementer ikke er større end
+    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 #placeholder {
@@ -283,15 +278,12 @@ p {
 }
 
 #logo-bottom {
-    width: 150px;
-    height: 150px;
-
-
+    height: 100px;
 }
 
 #text-bottom {
     width: 200px;
-
+    margin-bottom: 20px;
 }
 
 /* ----------------------------------------------------- SURFBOARD PAGES ---------------------------------------------------------- */
@@ -323,7 +315,7 @@ th {
     max-height: 400px;
 }
 
-/* ------------------------------------------------------- MENU STYLING ------------------------------------------------------------ */
+/* ------------------------------------------------------- SURFBOARDS ------------------------------------------------------------ */
 
 h1 {
     text-align: center;
@@ -341,15 +333,10 @@ h1 {
 
 .boardbox {
     width: 350px;
-    height: 250px;
-    background-size: contain;
-    /* skalere billedet så det ikke bliver cropped*/
-    background-position: center;
-    /* Centrerer billedet fra midten */
-    background-repeat: no-repeat;
-    border: 1px solid #ccc;
+    height: 450px;
+    background-color: white;
+    /* border: 1px solid #ccc; */
     /* Lave en grænse så man kan se start og slut*/
-
     display: flex;
     /* afgører hvordan containerens elementer kan blive lagt ud - Række, kolonne osv */
     flex-direction: column;
@@ -357,16 +344,54 @@ h1 {
     justify-content: space-between;
     /* Knappen ligger i bunden via "space-between" */
     padding: 10px;
-    /* Så knappen ikke rør kanten */
-    box-sizing: border-box;
     /*sørger for at indholdet er samme størrelse INKLUSIV padding*/
 }
 
+.boardbox:hover {
+    -webkit-box-shadow: 0 0 10px lightgray;
+    box-shadow: 0 0 10px lightgray;
+}
+
+.boardbox:hover button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.boardbox a {
+    background-size: contain;
+    /* skalér billedet så det ikke bliver cropped*/
+    height: calc(100% - 36px);
+    width: 100%;
+    display: block;
+    color: black;
+}
+
+.boardbox h3 {
+    margin: 4%;
+}
+
 .boardbox img {
-    height: 100%;
+    height: calc(100% - 80px);
     width: 100%;
     object-fit: contain;
-    overflow: auto;
+}
+
+.add-to-basket-button {
+    width: 100%;
+    align-self: center;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.add-to-basket-button:hover {
+    background-color: rgb(171, 87, 56);
 }
 
 .wetoversigt {
@@ -376,6 +401,8 @@ h1 {
     justify-content: left;
     gap: 10px;
 }
+
+/* ------------------------------------------------------- VÅDDRAGTER ------------------------------------------------------------ */
 
 .wetbox {
     width: 350px;
