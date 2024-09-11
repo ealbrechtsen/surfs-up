@@ -5,11 +5,20 @@
     <div>
         @foreach (var item in Model)
         {
-            <ul>
-                <li>ShoppingCartItem.Id: @item.Id</li>
-                <li>ShoppingCartItem.Product.ProductId: @item.Product.ProductId</li>
-                <li>ShoppingCartItem.Amount: @item.Amount</li>
-            </ul>
+            <div id="boardInformation">
+                <table>
+                    <tr>
+                        <th>Id:</th>
+                        <th>Product-navn: </th>
+                        <th>Mængde:</th>
+                    </tr>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Quantity</td>
+                    </tr>
+                </table>
+            </div>
         }
     </div>
 </div>

@@ -10,10 +10,10 @@
             new ShoppingCartItem(4, new Product(4, "Mahi Mahi", "/images/mahi_mahi.webp", 5.4, 20.75, 2.3, 29.39, "Fish", 645), 4)
         };
 
-        public static void AddItem(Product product, int amount) //CREATE 
+        public static void AddItem(Product product, int quantity) //CREATE 
         {
             var maxId = _items.Max(x => x.Id);
-            var item = new ShoppingCartItem(maxId + 1, product, amount);
+            var item = new ShoppingCartItem(maxId + 1, product, quantity);
             _items.Add(item);
         }
 
@@ -21,7 +21,7 @@
 
 
 
-        // TODO: Update amount metode her senere :)))))
+        // TODO: Update quantity metode her senere :)))))
 
 
 

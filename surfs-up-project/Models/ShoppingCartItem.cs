@@ -4,13 +4,13 @@
     {
         public int Id { get; set; }
         public Product Product { get; set; }
-        public int Amount { get; set; }
+        public int Quantity { get; set; }
 
-        public ShoppingCartItem(int id, Product product, int amount)
+        public ShoppingCartItem(int id, Product product, int quantity)
         {
             Id = id;
             Product = product;
-            Amount = amount;
+            Quantity = quantity;
         }
     }
 }
