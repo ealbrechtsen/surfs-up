@@ -1,7 +1,7 @@
 @model List<Product>;
 
 <h1>
-    Oversigt over boads
+    Oversigt over boards
 </h1>
 
 <!-- BOARD Container -->
@@ -19,7 +19,7 @@
 
             <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post">
                 <input type="hidden" asp-for="@ProductId" />
-                <button type="submit" class="btn btn-primary">Læg i kurv</button>
+                <button type="submit" class="add-to-cart-button">Læg i kurv</button>
             </form>
         </div>
     }
