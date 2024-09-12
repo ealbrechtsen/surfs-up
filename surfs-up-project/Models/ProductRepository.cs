@@ -4,18 +4,11 @@ namespace surfs_up_project.Models
     {
 
         private static List<Product> _products = new List<Product>() {
-         new Product {ProductId = 1, Name = "The Minilog", ImagePath="/images/the_minilog.webp", Length = 6, Width = 21,
-         Thickness= 2.75, Volume = 38.8, Type="Shortboard", Price= 565 },
-
-         new Product {ProductId = 2, Name = "The Wide Glider", ImagePath="/images/the_wide_glider.webp", Length = 7.1, Width = 21.75,
-         Thickness= 2.75, Volume = 44.16, Type="Funboard", Price= 685 },
-
-          new Product {ProductId = 3, Name = "The Golden Ratio", ImagePath="/images/the_golden_ratio.webp", Length = 6.3, Width = 21.85,
-         Thickness= 2.9, Volume = 43.22, Type="Funboard", Price= 695 },
-
-          new Product {ProductId = 4, Name = "Mahi Mahi", ImagePath="/images/mahi_mahi.webp", Length = 5.4, Width = 20.75,
-         Thickness= 2.3, Volume = 29.39, Type="Fish", Price= 645 },
-     };
+            new Product(1, "The Minilog", "/images/the_minilog.webp", 6, 21, 2.75, 38.8, "Shortboard", 565),
+            new Product(2, "The Wide Glider", "/images/the_wide_glider.webp", 7.1, 21.75, 2.75, 44.16, "Funboard", 685),
+            new Product(3, "The Golden Ratio", "/images/the_golden_ratio.webp", 6.3, 21.85, 2.9, 43.22, "Funboard", 695),
+            new Product(4, "Mahi Mahi", "/images/mahi_mahi.webp", 5.4, 20.75, 2.3, 29.39, "Fish", 645)
+        };
 
         public static void AddProduct(Product product) //CREATE 
         {
@@ -32,20 +25,7 @@ namespace surfs_up_project.Models
             var product = _products.FirstOrDefault(x => x.ProductId == productId);
             if (product != null)//KONTROLLER OM CATEGORY BLEV FUNDET 
             {
-                return new Product
-                {
-                    //RETURNERE DENNE VIDEN OM DEN FUNDNE CATEGORY 
-                    ProductId = product.ProductId,
-                    Name = product.Name,
-                    ImagePath = product.ImagePath,
-                    Length = product.Length,
-                    Width = product.Width,
-                    Thickness = product.Thickness,
-                    Volume = product.Volume,
-                    Type = product.Type,
-                    Price = product.Price
-
-                };
+                return product; // Her blev der slettet så der ikke længere bliver oprettet en kopi. (ret tilbage hvis det giver fejl)
             }
             return null;//HVIS INGEN CATEGORY BLEV FUNDET RETURNERES NULL
         }
