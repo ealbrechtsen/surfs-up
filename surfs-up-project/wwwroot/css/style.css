@@ -102,7 +102,7 @@ a {
     width: 100;
     /*Sørger for at bredden matcher "parent" (altså MenuItem)*/
     white-space: normal;
-    z-index:1;
+    z-index: 1;
 }
 
     .submenu a {
@@ -413,9 +413,9 @@ h1 {
     transform: translateY(10px);
 }
 
-    .add-to-basket-button:hover {
-        background-color: rgb(171, 87, 56);
-    }
+.add-to-basket-button:hover {
+    background-color: rgb(171, 87, 56);
+}
 
 .wetoversigt {
     text-align: center;
@@ -462,4 +462,21 @@ h1 {
 
 #wet1 {
     background-image: url('https://www.oceandive.dk/5133-medium_default/blueseventy-fusion-v%C3%A5ddragt-mand.jpg');
+}
+
+/* ------------------------------------------------------- VÅDDRAGTER ------------------------------------------------------------ */
+
+#shopping-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#shopping-cart a {
+    color: black;
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
 }
