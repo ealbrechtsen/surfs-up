@@ -471,3 +471,20 @@ h1 {
 #wet1 {
     background-image: url('https://www.oceandive.dk/5133-medium_default/blueseventy-fusion-v%C3%A5ddragt-mand.jpg');
 }
+
+/* ------------------------------------------------------- VÅDDRAGTER ------------------------------------------------------------ */
+
+#shopping-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#shopping-cart a {
+    color: black;
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+}
