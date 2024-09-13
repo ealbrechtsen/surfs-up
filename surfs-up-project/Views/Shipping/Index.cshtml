@@ -24,54 +24,70 @@
             width: 400px;
         }
 
-        .form-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
+            .form-container h1 {
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+            }
 
         .form-group {
             margin-bottom: 20px;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 18px;
+            }
 
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
 
-        .form-group button {
-            width: 100%;
-            padding: 12px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+            .form-group button {
+                width: 100%;
+                padding: 12px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
 
-        .form-group button:hover {
-            background-color: #45a049;
-        }
+                .form-group button:hover {
+                    background-color: #45a049;
+                }
     </style>
+    <script>
+        function saveDataToSessionStorage(event) {
+            event.preventDefault(); // Forhindrer standard formularindsendelse
+
+            // Gem input fra formularen i Session Storage
+            sessionStorage.setItem('firstName', document.getElementById('firstName').value);
+            sessionStorage.setItem('lastName', document.getElementById('lastName').value);
+            sessionStorage.setItem('email', document.getElementById('email').value);
+            sessionStorage.setItem('phone', document.getElementById('phone').value);
+            sessionStorage.setItem('address', document.getElementById('address').value);
+            sessionStorage.setItem('zipCode', document.getElementById('zipCode').value);
+            sessionStorage.setItem('city', document.getElementById('city').value);
+
+            // Omdirigerer til bekræftelsessiden
+            window.location.href = '/Confirmed/Index';
+        }
+    </script>
 </head>
 <body>
-
-    <h3> Levering</h3>
     <div class="form-container">
         <h1>Levering</h1>
-        <form action="submit_form.php" method="post">
+        <form onsubmit="saveDataToSessionStorage(event)">
+            <!-- Ændrer formens handling -->
 
             <!-- Navn -->
             <div class="form-group">
@@ -88,7 +104,7 @@
             <!-- E-mail -->
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required> @* //typen gør at den kræver @ og .com/dk" *@
+                <input type="email" id="email" name="email" required>
             </div>
 
             <!-- Telefonnummer -->

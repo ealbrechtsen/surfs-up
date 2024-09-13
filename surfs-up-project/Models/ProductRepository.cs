@@ -1,6 +1,6 @@
 namespace surfs_up_project.Models
 {
-    public static class ProductRepository //CRUD
+    public static class ProductRepository //CRUD 
     {
 
         private static List<Product> _products = new List<Product>() {
