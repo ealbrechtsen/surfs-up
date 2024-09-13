@@ -1,8 +1,7 @@
 ﻿@model List<ShoppingCartItem>;
 
-<div>
+<div id="shopping-cart">
     <h1>Indkøbskurv</h1>
-    <div>
         @foreach (var item in Model)
         {
             <div id="boardInformation">
@@ -20,5 +19,5 @@
                 </table>
             </div>
         }
-    </div>
+        <a asp-controller="Shipping" asp-action="Index">Videre</a>
 </div>
