@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bekræft Oplysninger</title>
     <style>
-        /* Tilføj din styling her */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -16,6 +15,7 @@
             align-items: center;
             height: 100vh;
         }
+
         .confirm-container {
             background-color: #fff;
             padding: 40px;
@@ -24,33 +24,18 @@
             width: 400px;
         }
     </style>
-    <script>
-        // Henter data fra Session Storage og viser dem
-                document.addEventListener("DOMContentLoaded", function() {
-                    document.getElementById('confirmFirstName').textContent = sessionStorage.getItem('firstName');
-                    document.getElementById('confirmLastName').textContent = sessionStorage.getItem('lastName');
-                    document.getElementById('confirmEmail').textContent = sessionStorage.getItem('email');
-                    document.getElementById('confirmPhone').textContent = sessionStorage.getItem('phone');
-                    document.getElementById('confirmAddress').textContent = sessionStorage.getItem('address');
-                    document.getElementById('confirmZipCode').textContent = sessionStorage.getItem('zipCode');
-                    document.getElementById('confirmCity').textContent = sessionStorage.getItem('city');
-                });
-    </script>
 </head>
 <body>
     <div class="confirm-container">
         <h1>Bekræft Oplysninger</h1>
-        <p><strong>Navn:</strong> <span id="confirmFirstName"></span></p>
-        <p><strong>Efternavn:</strong> <span id="confirmLastName"></span></p>
-        <p><strong>E-mail:</strong> <span id="confirmEmail"></span></p>
-        <p><strong>Telefonnummer:</strong> <span id="confirmPhone"></span></p>
-        <p><strong>Adresse:</strong> <span id="confirmAddress"></span></p>
-        <p><strong>Postnummer:</strong> <span id="confirmZipCode"></span></p>
-        <p><strong>By:</strong> <span id="confirmCity"></span></p>
-        <p><strong>Ordre:</strong></p>
-        <button onclick="alert('Ordre bekræftet!')">Bekræft Ordre</button>
+        <p><strong>Navn:</strong> @Model.FirstName</p>
+        <p><strong>Efternavn:</strong> @Model.LastName</p>
+        <p><strong>E-mail:</strong> @Model.Email</p>
+        <p><strong>Telefonnummer:</strong> @Model.PhoneNumber</p>
+        <p><strong>Adresse:</strong> @Model.Address</p>
+        <p><strong>Postnummer:</strong> @Model.ZipCode</p>
+        <p><strong>By:</strong> @Model.City</p>
+        <button type="submit">Bekræft Ordre</button>
     </div>
 </body>
 </html>
-﻿
-

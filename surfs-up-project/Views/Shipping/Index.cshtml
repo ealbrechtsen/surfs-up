@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="da">
 <head>
     <meta charset="UTF-8">
@@ -65,73 +66,39 @@
                     background-color: #45a049;
                 }
     </style>
-    <script>
-        function saveDataToSessionStorage(event) {
-            event.preventDefault(); // Forhindrer standard formularindsendelse
-
-            // Gem input fra formularen i Session Storage
-            sessionStorage.setItem('firstName', document.getElementById('firstName').value);
-            sessionStorage.setItem('lastName', document.getElementById('lastName').value);
-            sessionStorage.setItem('email', document.getElementById('email').value);
-            sessionStorage.setItem('phone', document.getElementById('phone').value);
-            sessionStorage.setItem('address', document.getElementById('address').value);
-            sessionStorage.setItem('zipCode', document.getElementById('zipCode').value);
-            sessionStorage.setItem('city', document.getElementById('city').value);
-
-            // Omdirigerer til bekræftelsessiden
-            window.location.href = '/Confirmed/Index';
-        }
-    </script>
 </head>
 <body>
     <div class="form-container">
         <h1>Levering</h1>
-        <form onsubmit="saveDataToSessionStorage(event)">
-            <!-- Ændrer formens handling -->
-
-            <!-- Navn -->
+        <form method="post" asp-controller="confirmed" asp-controller="index">
             <div class="form-group">
                 <label for="firstName">Navn:</label>
-                <input type="text" id="firstName" name="firstName" required>
+                <input type="text" id="firstName" name="FirstName" required />
             </div>
-
-            <!-- Efternavn -->
             <div class="form-group">
                 <label for="lastName">Efternavn:</label>
-                <input type="text" id="lastName" name="lastName" required>
+                <input type="text" id="lastName" name="LastName" required />
             </div>
-
-            <!-- E-mail -->
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="Email" required />
             </div>
-
-            <!-- Telefonnummer -->
             <div class="form-group">
                 <label for="phone">Telefonnummer:</label>
-                <input type="tel" id="phone" name="phone" required>
+                <input type="tel" id="phone" name="Phone" required />
             </div>
-
-            <!-- Adresse -->
             <div class="form-group">
                 <label for="address">Adresse:</label>
-                <input type="text" id="address" name="address">
+                <input type="text" id="address" name="Address" />
             </div>
-
-            <!-- Postnummer -->
             <div class="form-group">
                 <label for="zipCode">Postnummer:</label>
-                <input type="text" id="zipCode" name="zipCode">
+                <input type="text" id="zipCode" name="ZipCode" />
             </div>
-
-            <!-- By -->
             <div class="form-group">
                 <label for="city">By:</label>
-                <input type="text" id="city" name="city">
+                <input type="text" id="city" name="City" />
             </div>
-
-            <!-- Send-knap -->
             <div class="form-group">
                 <button type="submit">Videre</button>
             </div>
