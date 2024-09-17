@@ -10,6 +10,10 @@
             new ShoppingCartItem(4, new Product(4, "Mahi Mahi", "/images/mahi_mahi.webp", 5.4, 20.75, 2.3, 29.39, "Fish", 645), 4)
         };
 
+        // Dates for the whole shopping cart, set as nullable
+        public static DateTime? PickUpDate { get; set; } 
+        public static DateTime? ReturnDate { get; set; }
+
         public static void AddItem(Product product, int quantity) //CREATE 
         {
             var maxId = _items.Max(x => x.Id);
