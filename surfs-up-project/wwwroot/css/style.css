@@ -54,8 +54,8 @@ h3 {
     text-align: center;
 }
 
-#menu
-/*   Container for menu  */ {
+#menu {
+    /*   Container for menu  */
     list-style-type: none;
     /*Fjerner bullet points * */
     display: flex;
@@ -63,30 +63,26 @@ h3 {
     background-color: #CC7723;
     height: 60px;
     margin-right: 120px;
-    cursor: pointer;
 }
 
 
-li
-/*   Top-menu-items  */ {
-    display: inline-block;
+li {
     /*viser items i en række*/
-    color: white;
-    /*text-farve*/
-    /*padding: 45px 30px;*/
-    padding: 20px 30px;
     font-weight: bold;
     position: relative;
+    cursor: default;
 }
 
-
-a {
+li a {
+    /*   Top-menu-items  */
+    display: inline-block;
     color: white;
     text-decoration: none;
+    padding: 20px 30px;
 }
 
-.submenu
-/* regler for vores submenu (selve dropdown)   */ {
+.submenu {
+    /* regler for vores submenu (selve dropdown)   */
     display: none;
     /*   sørger for at den er skjult by default*/
     position: absolute;
@@ -99,39 +95,45 @@ a {
     top: 100%;
     left: 0;
     min-width: 100%;
-    width: 100;
     /*Sørger for at bredden matcher "parent" (altså MenuItem)*/
     white-space: normal;
-    z-index:1;
+    z-index: 1;
 }
 
-    .submenu a {
-        padding: 10px 16px;
-        display: inline-block;
-        box-sizing: border-box;
-    }
+.submenu a {
+    padding: 10px 16px;
+    display: inline-block;
+    box-sizing: border-box;
+}
 
-    .submenu li
-    /*  Regler for selve ITEMS i "submenu"*/ {
-        display: block;
-        padding: 0;
-        color: white;
-        text-align: left;
-    }
+.submenu li {
+    /*  Regler for selve ITEMS i "submenu"*/
+    display: block;
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-align: left;
+}
 
-        .submenu li:hover
-        /* hover effekt for dropdown items */ {
-            background-color: black;
-        }
+.submenu li:hover
+
+/* hover effekt for dropdown items */
+    {
+    background-color: black;
+}
 
 li:hover .submenu
+
 /* viser dropdown når cursor "hover" 
-                over menu-item (som alle er pakket ind i "li")*/ {
+                over menu-item (som alle er pakket ind i "li")*/
+    {
     display: block;
 }
 
 li:hover
-/* effekt for menu items */ {
+
+/* effekt for menu items */
+    {
     background-color: orange;
 }
 
@@ -192,10 +194,10 @@ li a {
     border-radius: 10px;
 }
 
-    .booking:hover {
-        transition: 0.3s;
-        background-color: rgb(171, 87, 56);
-    }
+.booking:hover {
+    transition: 0.3s;
+    background-color: rgb(171, 87, 56);
+}
 
 #surf1 {
     background-image: url('https://www.primalsurf.co.nz/site/wp-content/uploads/2022/10/fade3-l.jpg');
@@ -222,10 +224,10 @@ hr {
     /* Juster afstand mellem logo og sektioner */
 }
 
-    .logo-button img {
-        display: inline-block;
-        vertical-align: middle;
-    }
+.logo-button img {
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .container {
     text-align: center;
@@ -266,15 +268,20 @@ p {
     width: 200px;
     margin-bottom: 20px;
 }
+
 /* ------------------------------------------------------- FRONT PAGE ------------------------------------------------------------- */
 
 .hero-image {
     /* The hero image */
-    background-image: url('/images/front-page.jpg'); /* Baggrundsbillede */
+    background-image: url('/images/front-page.jpg');
+    /* Baggrundsbillede */
     /* Positioning and centering */
-    position: relative; /* Tillader absolut positionering af teksten */
-    background-size: cover; /*  Billedet dækker hele containeren */
-    background-position: center; /* Centrerer billedet */
+    position: relative;
+    /* Tillader absolut positionering af teksten */
+    background-size: cover;
+    /*  Billedet dækker hele containeren */
+    background-position: center;
+    /* Centrerer billedet */
     background-repeat: no-repeat;
     min-height: 600px;
     height: auto;
@@ -309,6 +316,7 @@ p {
     word-spacing: 5px;
     letter-spacing: 1px;
 }
+
 /* ----------------------------------------------------- SURFBOARD PAGES ---------------------------------------------------------- */
 
 #boardInformation {
@@ -319,24 +327,24 @@ p {
     justify-content: center;
 }
 
-    #boardInformation table {
-        display: table;
-        border-collapse: collapse;
-        background-color: white;
-    }
+#boardInformation table {
+    display: table;
+    border-collapse: collapse;
+    background-color: white;
+}
 
-    #boardInformation td,
-    th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
+#boardInformation td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 
-    #boardInformation img {
-        object-fit: contain;
-        height: 50%;
-        max-height: 400px;
-    }
+#boardInformation img {
+    object-fit: contain;
+    height: 50%;
+    max-height: 400px;
+}
 
 /* ------------------------------------------------------- SURFBOARDS ------------------------------------------------------------ */
 
@@ -370,34 +378,34 @@ h1 {
     /*sørger for at indholdet er samme størrelse INKLUSIV padding*/
 }
 
-    .boardbox:hover {
-        -webkit-box-shadow: 0 0 10px lightgray;
-        box-shadow: 0 0 10px lightgray;
-    }
+.boardbox:hover {
+    -webkit-box-shadow: 0 0 10px lightgray;
+    box-shadow: 0 0 10px lightgray;
+}
 
-        .boardbox:hover button {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.boardbox:hover button {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    .boardbox a {
-        background-size: contain;
-        /* skalér billedet så det ikke bliver cropped*/
-        height: calc(100% - 36px);
-        width: 100%;
-        display: block;
-        color: black;
-    }
+.boardbox a {
+    background-size: contain;
+    /* skalér billedet så det ikke bliver cropped*/
+    height: calc(100% - 36px);
+    width: 100%;
+    display: block;
+    color: black;
+}
 
-    .boardbox h3 {
-        margin: 4%;
-    }
+.boardbox h3 {
+    margin: 4%;
+}
 
-    .boardbox img {
-        height: calc(100% - 80px);
-        width: 100%;
-        object-fit: contain;
-    }
+.boardbox img {
+    height: calc(100% - 80px);
+    width: 100%;
+    object-fit: contain;
+}
 
 .add-to-cart-button {
     width: 100%;
@@ -413,9 +421,9 @@ h1 {
     transform: translateY(10px);
 }
 
-    .add-to-basket-button:hover {
-        background-color: rgb(171, 87, 56);
-    }
+.add-to-basket-button:hover {
+    background-color: rgb(171, 87, 56);
+}
 
 .wetoversigt {
     text-align: center;
@@ -462,4 +470,21 @@ h1 {
 
 #wet1 {
     background-image: url('https://www.oceandive.dk/5133-medium_default/blueseventy-fusion-v%C3%A5ddragt-mand.jpg');
+}
+
+/* ------------------------------------------------------- VÅDDRAGTER ------------------------------------------------------------ */
+
+#shopping-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#shopping-cart a {
+    color: black;
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
 }

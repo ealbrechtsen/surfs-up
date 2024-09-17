@@ -1,13 +1,12 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="styleSheet" href="~/css/style.css">
-
+    <title>@ViewBag.Title</title> <!-- Dynamic title for each view -->
+    <!-- Link to CSS styles -->
+    <link rel="stylesheet" href="~/css/style.css" />
 </head>
 
 <body>
@@ -19,11 +18,9 @@
                 <img id="logo-text" src="~/images/image-logo-text.png" alt="Logo Text">
             </div>
             <ul id="menu" class="dropdown">
+                <li><a asp-controller="home" asp-action="index">Hjem</a></li>
                 <li>
-                    <a asp-controller="home" asp-action="index">Hjem</a></li>
-                </li>
-                <li>
-                    Udlejning
+                    <a>Udlejning</a>
                     <ul class="submenu">
                         <li><a asp-controller="rental" asp-action="boards">Boards</a></li>
                         <li><a asp-controller="rental" asp-action="wetsuit">Våddragter</a></li>
@@ -32,7 +29,7 @@
                     </ul>
                 </li>
                 <li>
-                    Om os
+                    <a>Om os</a>
                     <ul class="submenu">
                         <li><a>Hvem er vi?</a></li>
                         <li><a>FAQ</a></li>
@@ -45,10 +42,12 @@
     </nav>
 
     <!---------- CONTENT ----------->
-    @RenderBody()
+    <div class="container">
+        @RenderBody() <!-- Her bliver view-indholdet indsat -->
+    </div>
 
     <!---------- FOOTER ----------->
-    <div class="container">
+    <div class="footer-container">
         <div class="bottom">
             <img id="logo-bottom" src="~/images/image-logo.png" alt="logo-bottom">
             <img id="text-bottom" src="~/images/image-logo-text.png" alt="text-bottom">
