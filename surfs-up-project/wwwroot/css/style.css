@@ -138,11 +138,13 @@ li:hover
 }
 
 li a {
-    /* nedenstående sørger for at elementer ikke er større end
-    "parent"menu-item (altså "li") og bryder tekst-strengen hvis den er*/
-    overflow-wrap: break-word;
-    word-break: break-word;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 30px 40px; /* Øget padding */
+    font-size: 18px; /* Større tekst */
 }
+
 
 #placeholder {
     display: block;
