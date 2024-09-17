@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_project.Models;
-using System.Reflection.Emit;
+
 
 namespace surfs_up_project.Controllers
 {
@@ -8,6 +8,7 @@ namespace surfs_up_project.Controllers
     {
         public IActionResult Index(string firstName, string lastName, string email, string phoneNumber, string address, int zipCode, string city)
         {
+            // Opretter en Customer-objekt med de data, der er sendt til metoden
             var customer = new Customer
             {
                 FirstName = firstName,
@@ -19,9 +20,18 @@ namespace surfs_up_project.Controllers
                 City = city
             };
 
-            return View(customer);
+            // Opretter en Product-objekt med eksempeldata (du skal tilpasse dette efter dine behov)
+            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+
+            // Opretter en ConfirmedViewModel-objekt og tildeler customer og product
+            var model = new OrderConfirmedVM
+            {
+                Customer = customer,
+                Items = items
+            };
+
+            // Sender modellen til viewet
+            return View(model);
         }
     }
-
-
 }
