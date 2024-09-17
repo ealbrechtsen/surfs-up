@@ -47,5 +47,6 @@ namespace surfs_up_project.Controllers
             List<ShoppingCartItem> items = ShoppingCart.GetItems();
             return View("Index", items);
         }
+
     }
 }
