@@ -33,5 +33,9 @@ namespace surfs_up_project.Controllers
             // Sender modellen til viewet
             return View(model);
         }
+        public IActionResult OrderConfirmed () 
+        {
+            return View();
+        }
     }
 }

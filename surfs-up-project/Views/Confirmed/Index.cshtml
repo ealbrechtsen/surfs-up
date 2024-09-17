@@ -9,6 +9,11 @@
     <p><strong>Fornavn:</strong> @Model.Customer.FirstName</p>
     <p><strong>Efternavn:</strong> @Model.Customer.LastName</p>
     <p><strong>Email:</strong> @Model.Customer.Email</p>
+    <p><strong>Telefonnummer:</strong> @Model.Customer.PhoneNumber</p>
+    <p><strong>Adresse:</strong> @Model.Customer.Address</p>
+    <p><strong>Postnummer:</strong> @Model.Customer.ZipCode</p>
+    <p><strong>By:</strong> @Model.Customer.City</p>
+
     @foreach (var item in Model.Items)
     {
         <div id="boardInformation">
@@ -25,7 +30,7 @@
         </div>
     }
 
-    <form asp-controller="Confirmed" asp-action="SubmitOrder" method="post">
+    <form asp-controller="Confirmed" asp-action="OrderConfirmed" method="post">
         <button type="submit" class="confirm-button">Bekræft Ordre</button>
     </form>
 </div>

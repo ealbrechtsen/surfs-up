@@ -480,11 +480,17 @@ h1 {
     align-items: center;
 }
 
-#shopping-cart a {
-    color: black;
-    border: 1px solid black;
-    background-color: lightgray;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 15px;
-}
+    #shopping-cart a {
+        color: black;
+        border: 1px solid black;
+        background-color: lightgray;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 15px;
+    }
+        /* ------------------------------------------------------- FOOTER ------------------------------------------------------------ */
+
+
+
+
+
