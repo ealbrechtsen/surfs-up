@@ -32,6 +32,11 @@ namespace surfs_up_project.Models
             Type = type;
             Price = price;
         }
+
+        public Product()
+        { 
+            // TOM KONSTRUKTOR TIL DATAASE
+        }
     }
 
 }

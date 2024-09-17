@@ -1,5 +1,5 @@
 namespace surfs_up_project.Models
-{
+{    
     public static class ProductRepository //CRUD 
     {
 
@@ -63,5 +63,5 @@ namespace surfs_up_project.Models
             // Hvis kategorien ikke findes, sker der ingenting.
         }
 
-    }
+    }   
 }
