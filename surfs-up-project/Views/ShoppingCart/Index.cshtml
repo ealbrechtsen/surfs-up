@@ -2,24 +2,40 @@
 
 <div id="shopping-cart">
     <h1>Indkøbskurv</h1>
-        @foreach (var item in Model)
-        {
-            <div id="boardInformation">
-                <table>
-                    <tr>
-                        <th>Id:</th>
-                        <th>Product-navn: </th>
-                        <th>Mængde:</th>
-                    </tr>
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Product.Name</td>
-                        <td>@item.Quantity</td>
-                    </tr>
-                </table>
-            </div>
-        }
-        <a asp-controller="Shipping" asp-action="Index">Videre</a>
+    @foreach (var item in Model)
+    {
+        <div id="boardInformation">
+            <table>
+                <tr>
+                    <th>Id:</th>
+                    <th>Product-navn: </th>
+                    <th>Mængde:</th>
+                </tr>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            </table>
+        </div>
+    }
+    <!-- Booking datoer: Afhentning og levering -->
+    <div class="booking-dates">
+        <h3>Vælg dine booking datoer</h3>
+
+        <!-- Formular til afhentningsdato -->
+        <form asp-controller="Shipping" asp-action="Index" method="post">
+            <label for="pickUpDate">Afhentningsdato:</label>
+            <input type="date" id="pickUpDate" name="PickUpDate" required />
+
+            <!-- Formular til afleveringsdato -->
+            <label for="returnDate">Afleveringsdato:</label>
+            <input type="date" id="returnDate" name="ReturnDate" required />
+
+            <!-- Indsend knap -->
+            <button type="submit">Videre</button>
+        </form>
+    </div>
 </div>
 
 
