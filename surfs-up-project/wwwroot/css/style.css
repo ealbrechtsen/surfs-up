@@ -23,14 +23,14 @@ body {
     /* HVILKE FARVER SKAL BRUGES (EVT SOLID?)*/
 }
 
+/* logo til top til venstre */
 #logo {
-    /* logo til top til venstre */
     object-fit: contain;
     height: 100%;
 }
 
+/* text til venstre for logo */
 #logo-text {
-    /* text til venstre for logo */
     object-fit: contain;
     height: 40px;
     display: inline-block;
@@ -54,32 +54,44 @@ h3 {
     text-align: center;
 }
 
+/*   Container for menu  */
 #menu {
-    /*   Container for menu  */
     list-style-type: none;
     /*Fjerner bullet points * */
     display: flex;
     text-align: center;
     background-color: #CC7723;
-    height: 60px;
+    height: 81px;
     margin-right: 120px;
 }
 
 
+/*viser items i en række*/
 li {
-    /*viser items i en række*/
     font-weight: bold;
     position: relative;
     cursor: default;
 }
 
-li a {
     /*   Top-menu-items  */
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 20px 30px;
-}
+    li a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 30px 40px; /* Øget padding */
+        font-size: 18px; /* Større tekst */
+    }
+
+    li:hover {
+        /* effekt for menu items */
+        background-color: orange;
+    }
+
+    li:hover .submenu {
+        /* viser dropdown når cursor "hover" 
+                over menu-item (som alle er pakket ind i "li")*/
+        display: block;
+    }
 
 .submenu {
     /* regler for vores submenu (selve dropdown)   */
@@ -100,51 +112,25 @@ li a {
     z-index: 1;
 }
 
-.submenu a {
-    padding: 10px 16px;
-    display: inline-block;
-    box-sizing: border-box;
-}
+    .submenu a {
+        padding: 10px 16px;
+        display: inline-block;
+        box-sizing: border-box;
+    }
 
-.submenu li {
-    /*  Regler for selve ITEMS i "submenu"*/
-    display: block;
-    padding: 0;
-    margin: 0;
-    color: white;
-    text-align: left;
-}
+    .submenu li {
+        /*  Regler for selve ITEMS i "submenu"*/
+        display: block;
+        padding: 0;
+        margin: 0;
+        color: white;
+        text-align: left;
+    }
 
-.submenu li:hover
-
-/* hover effekt for dropdown items */
-    {
-    background-color: black;
-}
-
-li:hover .submenu
-
-/* viser dropdown når cursor "hover" 
-                over menu-item (som alle er pakket ind i "li")*/
-    {
-    display: block;
-}
-
-li:hover
-
-/* effekt for menu items */
-    {
-    background-color: orange;
-}
-
-li a {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 30px 40px; /* Øget padding */
-    font-size: 18px; /* Større tekst */
-}
-
+        .submenu li:hover {
+            /* hover effekt for dropdown items */
+            background-color: black;
+        }
 
 #placeholder {
     display: block;
@@ -153,7 +139,6 @@ li a {
     margin: 50px;
     text-align: center;
 }
-
 
 .produktoversigt {
     text-align: center;
@@ -196,10 +181,10 @@ li a {
     border-radius: 10px;
 }
 
-.booking:hover {
-    transition: 0.3s;
-    background-color: rgb(171, 87, 56);
-}
+    .booking:hover {
+        transition: 0.3s;
+        background-color: rgb(171, 87, 56);
+    }
 
 #surf1 {
     background-image: url('https://www.primalsurf.co.nz/site/wp-content/uploads/2022/10/fade3-l.jpg');
@@ -226,10 +211,10 @@ hr {
     /* Juster afstand mellem logo og sektioner */
 }
 
-.logo-button img {
-    display: inline-block;
-    vertical-align: middle;
-}
+    .logo-button img {
+        display: inline-block;
+        vertical-align: middle;
+    }
 
 .container {
     text-align: center;
@@ -329,24 +314,24 @@ p {
     justify-content: center;
 }
 
-#boardInformation table {
-    display: table;
-    border-collapse: collapse;
-    background-color: white;
-}
+    #boardInformation table {
+        display: table;
+        border-collapse: collapse;
+        background-color: white;
+    }
 
-#boardInformation td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+    #boardInformation td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 
-#boardInformation img {
-    object-fit: contain;
-    height: 50%;
-    max-height: 400px;
-}
+    #boardInformation img {
+        object-fit: contain;
+        height: 50%;
+        max-height: 400px;
+    }
 
 /* ------------------------------------------------------- SURFBOARDS ------------------------------------------------------------ */
 
@@ -380,34 +365,34 @@ h1 {
     /*sørger for at indholdet er samme størrelse INKLUSIV padding*/
 }
 
-.boardbox:hover {
-    -webkit-box-shadow: 0 0 10px lightgray;
-    box-shadow: 0 0 10px lightgray;
-}
+    .boardbox:hover {
+        -webkit-box-shadow: 0 0 10px lightgray;
+        box-shadow: 0 0 10px lightgray;
+    }
 
-.boardbox:hover button {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .boardbox:hover button {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.boardbox a {
-    background-size: contain;
-    /* skalér billedet så det ikke bliver cropped*/
-    height: calc(100% - 36px);
-    width: 100%;
-    display: block;
-    color: black;
-}
+    .boardbox a {
+        background-size: contain;
+        /* skalér billedet så det ikke bliver cropped*/
+        height: calc(100% - 36px);
+        width: 100%;
+        display: block;
+        color: black;
+    }
 
-.boardbox h3 {
-    margin: 4%;
-}
+    .boardbox h3 {
+        margin: 4%;
+    }
 
-.boardbox img {
-    height: calc(100% - 80px);
-    width: 100%;
-    object-fit: contain;
-}
+    .boardbox img {
+        height: calc(100% - 80px);
+        width: 100%;
+        object-fit: contain;
+    }
 
 .add-to-cart-button {
     width: 100%;
@@ -490,9 +475,18 @@ h1 {
         margin: 5px;
         border-radius: 15px;
     }
-        /* ------------------------------------------------------- FOOTER ------------------------------------------------------------ */
 
+/* ------------------------------------------------------- FOOTER ------------------------------------------------------------ */
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#footerSections {
+    flex-direction: row;
+}
 
 
 
