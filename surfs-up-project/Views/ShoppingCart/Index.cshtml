@@ -23,18 +23,19 @@
     <div class="booking-dates">
         <h3>Vælg dine booking datoer</h3>
 
-        <!-- Formular til afhentningsdato -->
-        <form asp-controller="Shipping" asp-action="Index" method="post">
-            <label for="pickUpDate">Afhentningsdato:</label>
-            <input type="date" id="pickUpDate" name="PickUpDate" required />
+        <form asp-controller="Shipping" asp-action="Index" method="post" class="form-container">
+            <!-- Formular til afhentningsdato og tidspunkt -->
+            <label for="pickUpDateTime" class="form-label">Afhentningsdato og -tidspunkt:</label>
+            <input type="datetime-local" id="pickUpDateTime" name="PickUpDateTime" class="form-input" required />
 
-            <!-- Formular til afleveringsdato -->
-            <label for="returnDate">Afleveringsdato:</label>
-            <input type="date" id="returnDate" name="ReturnDate" required />
+            <!-- Formular til afleveringsdato og tidspunkt -->
+            <label for="returnDateTime" class="form-label">Afleveringsdato og -tidspunkt:</label>
+            <input type="datetime-local" id="returnDateTime" name="ReturnDateTime" class="form-input" required />
 
-            <!-- Indsend knap -->
-            <button type="submit">Videre</button>
+            <!-- Submit knap -->
+            <button type="submit" class="form-button">Videre</button>
         </form>
+
     </div>
 </div>
 

@@ -488,5 +488,53 @@ footer {
     flex-direction: row;
 }
 
+/* ------------------------------------------------------- STYLING AF TIDSPUNKT OG DATO ------------------------------------------------------------ */
 
+/* Gør hele formularen større og centreret */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Label-styling: gør skriften større og tydelig */
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input-styling: gør input-felterne større og mere synlige */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Styling af submit-knap */
+.form-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .form-button:hover {
+        background-color: #0056b3;
+    }
 
