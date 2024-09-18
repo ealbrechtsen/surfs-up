@@ -5,12 +5,14 @@ namespace surfs_up_project.Controllers
 {
     public class ShippingController : Controller
     {
-        public IActionResult Index(DateTime pickUpDate, DateTime returnDate)
+        public IActionResult Index(DateTime pickUpDateTime, DateTime returnDateTime)
         {
-            ShoppingCart.PickUpDate = pickUpDate;
-            ShoppingCart.ReturnDate = returnDate;
-            
+            // Opdaterer afhentnings- og afleveringsdato med tidspunkter i indkøbskurven
+            ShoppingCart.PickUpDate = pickUpDateTime;
+            ShoppingCart.ReturnDate = returnDateTime;
+
             return View();
         }
+
     }
 }
