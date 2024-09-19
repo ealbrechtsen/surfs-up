@@ -34,9 +34,32 @@ namespace surfs_up_project.Models
         }
 
         public Product()
-        { 
+        {
             // TOM KONSTRUKTOR TIL DATAASE
         }
     }
+
+
+
+    /*
+     dotnet ef migrations insert InitialCreate ??????
+     dotnet ef migrations add InitialCreate
+     dotnet ef database update
+
+     */
+    /*
+
+                STANDARD TIL AT INDSÆTTE DATA
+                    
+                 migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductId", "Name", "ImagePath", "Length", "Width", "Thickness", "Volume", "Type", "Price" },
+                values: new object[,]
+                {
+                    { 1, "Surfboard A", "path/to/imageA.jpg", 6.0, 20.5, 2.75, 35.0, "Shortboard", 599.99 },
+                    { 2, "Surfboard B", "path/to/imageB.jpg", 7.0, 21.0, 2.85, 40.0, "Funboard", 649.99 },
+                    
+                });
+     */
 
 }

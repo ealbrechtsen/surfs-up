@@ -11,8 +11,8 @@ using surfs_up_project.Models;
 namespace surfs_up_project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240916175044_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240918212851_NyeBoards")]
+    partial class NyeBoards
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

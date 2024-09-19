@@ -11,8 +11,8 @@ using surfs_up_project.Models;
 namespace surfs_up_project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240917102351_AddMissingProducts")]
-    partial class AddMissingProducts
+    [Migration("20240918211737_testMigration")]
+    partial class testMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
