@@ -1,5 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.
+
 builder.Services.AddControllersWithViews(); 
 
 var app = builder.Build();
