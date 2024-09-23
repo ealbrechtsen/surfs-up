@@ -6,6 +6,8 @@ using surfs_up_project.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CustomerDbContext>(
     options => options.UseSqlServer(connectionString));
@@ -22,7 +24,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole> (
     )
     .AddEntityFrameworkStores<CustomerDbContext>().AddDefaultTokenProviders();
 
-var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+
 
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
