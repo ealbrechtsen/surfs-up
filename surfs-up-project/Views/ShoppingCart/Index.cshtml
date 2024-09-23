@@ -2,22 +2,42 @@
 
 <div id="shopping-cart">
     <h1>Indkøbskurv</h1>
-        @foreach (var item in Model)
-        {
-            <div id="boardInformation">
-                <table>
-                    <tr>
-                        <th>Id:</th>
-                        <th>Product-navn: </th>
-                        <th>Mængde:</th>
-                    </tr>
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@item.Product.Name</td>
-                        <td>@item.Quantity</td>
-                    </tr>
-                </table>
-            </div>
-        }
-        <a asp-controller="Shipping" asp-action="Index">Videre</a>
+    @foreach (var item in Model)
+    {
+        <div id="boardInformation">
+            <table>
+                <tr>
+                    <th>Id:</th>
+                    <th>Product-navn: </th>
+                    <th>Mængde:</th>
+                </tr>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            </table>
+        </div>
+    }
+    <!-- Booking datoer: Afhentning og levering -->
+    <div class="booking-dates">
+        <h3>Vælg dine booking datoer</h3>
+
+        <form asp-controller="Shipping" asp-action="Index" method="post" class="form-container">
+            <!-- Formular til afhentningsdato og tidspunkt -->
+            <label for="pickUpDateTime" class="form-label">Afhentningsdato og -tidspunkt:</label>
+            <input type="datetime-local" id="pickUpDateTime" name="PickUpDateTime" class="form-input" required />
+
+            <!-- Formular til afleveringsdato og tidspunkt -->
+            <label for="returnDateTime" class="form-label">Afleveringsdato og -tidspunkt:</label>
+            <input type="datetime-local" id="returnDateTime" name="ReturnDateTime" class="form-input" required />
+
+            <!-- Submit knap -->
+            <button type="submit" class="form-button">Videre</button>
+        </form>
+
+    </div>
 </div>
+
+
+
