@@ -10,7 +10,7 @@ var connectionString = builder.Configuration.GetConnectionString("UserConnection
 
 
 builder.Services.AddControllersWithViews(); 
-builder.Services.AddDbContext<AppDbContext>(
+builder.Services.AddDbContext<CustomerDbContext>(
     options => options.UseSqlServer(connectionString));
 
 builder.Services.AddIdentity<AppUser, IdentityRole> (
@@ -23,7 +23,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole> (
         options.Password.RequireNonAlphanumeric = false;
     }
     )
-    .AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<CustomerDbContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
 
