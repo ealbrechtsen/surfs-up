@@ -43,6 +43,8 @@ void SeedDatabase(IHost app)
             dbContext.Products.AddRange(products);
             dbContext.SaveChanges();
         }
+
+
     }
 
 }

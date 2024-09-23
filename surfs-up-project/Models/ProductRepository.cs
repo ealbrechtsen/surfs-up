@@ -3,6 +3,11 @@ namespace surfs_up_project.Models
     public static class ProductRepository //CRUD 
     {
 
+        /*
+         * 
+         *              LAV NY CRUD, LAV EN CRONTROLLER ISTEDET 
+         * 
+        */
         private static List<Product> _products = new List<Product>() {
             new Product(1, "The Minilog", "/images/the_minilog.webp", 6, 21, 2.75, 38.8, "Shortboard", 565),
             new Product(2, "The Wide Glider", "/images/the_wide_glider.webp", 7.1, 21.75, 2.75, 44.16, "Funboard", 685),

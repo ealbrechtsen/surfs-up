@@ -9,6 +9,7 @@ namespace surfs_up_project.Controllers
 
         public HomeController(AppDbContext appDbContext)
         {
+            //Dependency injection
             _appDbContext = appDbContext;
         }
         public IActionResult Index()

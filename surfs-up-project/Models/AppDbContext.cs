@@ -4,7 +4,9 @@ namespace surfs_up_project.Models
 {
     public class AppDbContext : DbContext
     {
+        // KIG HER
         public DbSet<Product> Products { get; set; }
+
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
