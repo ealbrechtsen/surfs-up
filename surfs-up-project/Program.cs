@@ -52,7 +52,7 @@ void SeedDatabase(IHost app)
     {
         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-        dbContext.Database.Migrate();
+        //dbContext.Database.Migrate();
 
         if (!dbContext.Products.Any())
         {
