@@ -48,5 +48,12 @@ namespace surfs_up_project.Controllers
             return View("Index", items);
         }
 
+        [HttpPost]
+        public ActionResult RemoveFromCart(int id)
+        {
+            ShoppingCart.DeleteItem(id);
+            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            return View("Index", items);
+        }
     }
 }
