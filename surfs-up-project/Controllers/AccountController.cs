@@ -87,7 +87,7 @@ namespace surfs_up_project.Controllers
         public async Task <IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction(nameof(HomeController.Index));
+            return RedirectToAction("Index", "Home");
         }
     }
 }
