@@ -11,8 +11,8 @@ using surfs_up_project.Models;
 namespace surfs_up_project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240923073654_CustomreRecords")]
-    partial class CustomreRecords
+    [Migration("20240927072040_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

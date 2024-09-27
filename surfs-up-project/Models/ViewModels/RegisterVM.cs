@@ -4,7 +4,7 @@ namespace surfs_up_project.Models.ViewModels
 {
     public class RegisterVM
     {
-       
+        public int customerId { get; set; }
         [Required(ErrorMessage = "Indtast Navn")]
         [Display(Name = "Navn")]
         public string? FirstName { get; set; }

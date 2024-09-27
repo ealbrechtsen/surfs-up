@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_project.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
 namespace surfs_up_project.Controllers
@@ -33,6 +34,7 @@ namespace surfs_up_project.Controllers
             // Sender modellen til viewet
             return View(model);
         }
+        
         public IActionResult OrderConfirmed () 
         {
             return View();

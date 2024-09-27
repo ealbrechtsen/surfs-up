@@ -6,7 +6,12 @@ using surfs_up_project.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+var connectionString = builder.Configuration.GetConnectionString("CustomerConnection");
+
+var connectionString1 = builder.Configuration.GetConnectionString("DbConnectionString");
+builder.Services.AddDbContext<AppDbContext>(
+    options => options.UseSqlServer(connectionString1));
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CustomerDbContext>(
@@ -26,14 +31,14 @@ builder.Services.AddIdentity<AppUser, IdentityRole> (
 
 
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<CustomerDbContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseRouting();
 
-SeedDatabase(app);
+//SeedDatabase(app);
 
 
 app.MapControllerRoute(
@@ -44,7 +49,7 @@ app.MapControllerRoute(
 app.Run();
 
 
-
+/*
 // Program.cs SEEDING LOGIC (Måske)
 void SeedDatabase(IHost app)
 {
@@ -66,3 +71,5 @@ void SeedDatabase(IHost app)
     }
 
 }
+
+*/

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using surfs_up_project.Data;
 using surfs_up_project.Models;
 using surfs_up_project.Models.ViewModels;
 using System.Reflection.Metadata;
@@ -10,10 +12,15 @@ namespace surfs_up_project.Controllers
     {  
         private readonly SignInManager<AppUser> signInManager;
         private readonly UserManager<AppUser> userManager;
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
+        private readonly CustomerDbContext _context;
+
+  
+
+        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, CustomerDbContext context)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
+            _context = context;
         }
         // This method handles GET requests to render the login page
         [HttpGet]
@@ -64,7 +71,7 @@ namespace surfs_up_project.Controllers
                 };
                 var result = await userManager.CreateAsync(user, model.Password!);
                 if (result.Succeeded)
-                { 
+                {
                     await signInManager.SignInAsync(user, false);
 
                     return RedirectToAction("Index", "Home");
@@ -76,6 +83,7 @@ namespace surfs_up_project.Controllers
             }
             return View(model);
         }
+
         public async Task <IActionResult> Logout()
         {
             await signInManager.SignOutAsync();

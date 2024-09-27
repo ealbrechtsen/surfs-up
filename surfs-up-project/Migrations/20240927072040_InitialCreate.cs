@@ -5,7 +5,7 @@
 namespace surfs_up_project.Migrations
 {
     /// <inheritdoc />
-    public partial class CustomreRecords : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
