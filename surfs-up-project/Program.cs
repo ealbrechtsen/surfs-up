@@ -33,6 +33,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole> (
 
 builder.Services.AddDbContext<CustomerDbContext>(options => options.UseSqlServer(connectionString));
 
+
+
 var app = builder.Build();
 
 app.UseStaticFiles();
@@ -45,6 +47,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await RoleInitializer.InitializeAsync(services);
+}
 
 app.Run();
 
