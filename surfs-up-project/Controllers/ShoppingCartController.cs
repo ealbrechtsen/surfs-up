@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_project.Models;
+using System;
 
 
 namespace surfs_up_project.Controllers
@@ -48,10 +49,28 @@ namespace surfs_up_project.Controllers
             return View("Index", items);
         }
 
+        // Method for removing Item in ShoppingCart
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
             ShoppingCart.DeleteItem(id);
+            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            return View("Index", items);
+        }
+
+        // Edit and Update method for each item in shoppingcart
+        [HttpPost]
+        public ActionResult UpdateQuantity(int id, string action)
+        {
+            if (action == "increase")
+            {
+                ShoppingCart.IncreaseQuantity(id);
+            }
+            else if (action == "decrease")
+            {
+                ShoppingCart.DecreaseQuantity(id);
+            }
+
             List<ShoppingCartItem> items = ShoppingCart.GetItems();
             return View("Index", items);
         }
