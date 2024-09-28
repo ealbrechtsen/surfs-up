@@ -87,11 +87,11 @@ li {
         background-color: orange;
     }
 
-    li:hover .submenu {
-        /* viser dropdown når cursor "hover" 
+        li:hover .submenu {
+            /* viser dropdown når cursor "hover" 
                 over menu-item (som alle er pakket ind i "li")*/
-        display: block;
-    }
+            display: block;
+        }
 
 .submenu {
     /* regler for vores submenu (selve dropdown)   */
@@ -459,7 +459,7 @@ h1 {
     background-image: url('https://www.oceandive.dk/5133-medium_default/blueseventy-fusion-v%C3%A5ddragt-mand.jpg');
 }
 
-/* ------------------------------------------------------- VÅDDRAGTER ------------------------------------------------------------ */
+/* ------------------------------------------------------- Shopping cart ------------------------------------------------------------ */
 
 #shopping-cart {
     display: flex;
@@ -537,4 +537,3 @@ footer {
     .form-button:hover {
         background-color: #0056b3;
     }
-
