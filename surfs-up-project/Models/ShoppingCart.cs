@@ -5,6 +5,7 @@
         // Static list to hold shopping cart items
         private List<ShoppingCartItem> _items = new List<ShoppingCartItem>()
         {
+             // slette lortet??
             new ShoppingCartItem(1, new Product(1, "The Minilog", "/images/the_minilog.webp", 6, 21, 2.75, 38.8, "Shortboard", 565), 1),
             new ShoppingCartItem(2, new Product(2, "The Wide Glider", "/images/the_wide_glider.webp", 7.1, 21.75, 2.75, 44.16, "Funboard", 685), 2),
             new ShoppingCartItem(3, new Product(3, "The Golden Ratio", "/images/the_golden_ratio.webp", 6.3, 21.85, 2.9, 43.22, "Funboard", 695), 3),
@@ -63,5 +64,7 @@
                 _items.Remove(item); // If the item is found, remove it
             }
         }
+
+        // empty cart method ??
     }
 }

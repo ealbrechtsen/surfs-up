@@ -39,6 +39,7 @@ namespace surfs_up_project.Controllers
         
         public IActionResult OrderConfirmed () 
         {
+            // call the emptycart method
             return View();
         }
     }
