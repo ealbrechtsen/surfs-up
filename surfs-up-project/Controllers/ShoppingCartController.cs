@@ -7,9 +7,11 @@ namespace surfs_up_project.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        private ShoppingCart _shoppingCart = new ShoppingCart();
+
         public IActionResult Index()
         {
-            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
             return View(items);
         }
 
@@ -28,7 +30,7 @@ namespace surfs_up_project.Controllers
             var product = ProductRepository.GetProductById(productId);
             if (product != null)
             {
-                ShoppingCart.AddItem(product, quantity);
+                _shoppingCart.AddItem(product, quantity);
             }
 
             // if (refererPath.Contains("boards"))
@@ -45,7 +47,7 @@ namespace surfs_up_project.Controllers
             // {
             //     return View("~/Views" + refererPath + ".cshtml");
             // }
-            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
             return View("Index", items);
         }
 
@@ -53,8 +55,8 @@ namespace surfs_up_project.Controllers
         [HttpPost]
         public ActionResult RemoveFromCart(int id)
         {
-            ShoppingCart.DeleteItem(id);
-            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            _shoppingCart.DeleteItem(id);
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
             return View("Index", items);
         }
 
@@ -64,14 +66,14 @@ namespace surfs_up_project.Controllers
         {
             if (action == "increase")
             {
-                ShoppingCart.IncreaseQuantity(id);
+                _shoppingCart.IncreaseQuantity(id);
             }
             else if (action == "decrease")
             {
-                ShoppingCart.DecreaseQuantity(id);
+                _shoppingCart.DecreaseQuantity(id);
             }
 
-            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
             return View("Index", items);
         }
     }

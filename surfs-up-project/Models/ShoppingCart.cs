@@ -1,9 +1,9 @@
 ﻿namespace surfs_up_project.Models
 {
-    public static class ShoppingCart
+    public class ShoppingCart
     {
         // Static list to hold shopping cart items
-        private static List<ShoppingCartItem> _items = new List<ShoppingCartItem>()
+        private List<ShoppingCartItem> _items = new List<ShoppingCartItem>()
         {
             new ShoppingCartItem(1, new Product(1, "The Minilog", "/images/the_minilog.webp", 6, 21, 2.75, 38.8, "Shortboard", 565), 1),
             new ShoppingCartItem(2, new Product(2, "The Wide Glider", "/images/the_wide_glider.webp", 7.1, 21.75, 2.75, 44.16, "Funboard", 685), 2),
@@ -12,12 +12,12 @@
         };
 
         // Optional dates for pickup and return
-        public static DateTime? PickUpDate { get; set; } 
-        public static DateTime? ReturnDate { get; set; }
+        public DateTime? PickUpDate { get; set; } 
+        public DateTime? ReturnDate { get; set; }
 
 
         // Adds an item to the cart (CREATE)
-        public static void AddItem(Product product, int quantity) 
+        public void AddItem(Product product, int quantity) 
         {
             var maxId = _items.Max(x => x.Id);
             var item = new ShoppingCartItem(maxId + 1, product, quantity);
@@ -26,11 +26,11 @@
 
 
         // Returns the current list of items in the cart (READ)
-        public static List<ShoppingCartItem> GetItems() => _items;//READ
+        public List<ShoppingCartItem> GetItems() => _items;//READ
 
 
         // Increases the quantity of an item in the cart
-        public static void IncreaseQuantity(int id)
+        public void IncreaseQuantity(int id)
         {
             var item = _items.FirstOrDefault(x => x.Id == id);
             if (item != null)
@@ -41,7 +41,7 @@
 
 
         // Decreases the quantity of an item in the cart, but not below 1
-        public static void DecreaseQuantity(int id)
+        public void DecreaseQuantity(int id)
         {
             var item = _items.FirstOrDefault(x => x.Id == id);
             if (item != null && item.Quantity > 1) 
@@ -52,7 +52,7 @@
 
 
         // Removes an item from the cart by ID
-        public static void DeleteItem(int id) 
+        public void DeleteItem(int id) 
         {
             var item = _items.FirstOrDefault(x => x.Id == id);
 
