@@ -18,20 +18,21 @@ namespace surfs_up_api.Controllers
         public IActionResult Board(int? id)
         {
             var board = ProductRepository.GetProductById(id);
-            return View(board);
+            return Ok(board);
         }
 
+        //[HttpGet("{id}")]
+        //public IActionResult Wetsuit(int? id)
+        //{
+        //    var board = ProductRepository.GetProductById(id);
+        //    return Ok(board);
+        //}
 
-        public IActionResult Wetsuit(int? id)
-        {
-            var board = ProductRepository.GetProductById(id);
-            return View(board);
-        }
-
-        public IActionResult Equipment(int? id)
-        {
-            var board = ProductRepository.GetProductById(id);
-            return View(board);
-        }
+        //[HttpGet("{id}")]
+        //public IActionResult Equipment(int? id)
+        //{
+        //    var board = ProductRepository.GetProductById(id);
+        //    return Ok(board);
+        //}
     }
 }
