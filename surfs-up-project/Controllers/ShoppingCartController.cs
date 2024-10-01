@@ -1,14 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_project.Models;
+using System;
 
 
 namespace surfs_up_project.Controllers
 {
     public class ShoppingCartController : Controller
     {
+        private ShoppingCart _shoppingCart = new ShoppingCart();
+
         public IActionResult Index()
         {
-            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
             return View(items);
         }
 
@@ -27,7 +30,7 @@ namespace surfs_up_project.Controllers
             var product = ProductRepository.GetProductById(productId);
             if (product != null)
             {
-                ShoppingCart.AddItem(product, quantity);
+                _shoppingCart.AddItem(product, quantity);
             }
 
             // if (refererPath.Contains("boards"))
@@ -44,9 +47,34 @@ namespace surfs_up_project.Controllers
             // {
             //     return View("~/Views" + refererPath + ".cshtml");
             // }
-            List<ShoppingCartItem> items = ShoppingCart.GetItems();
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
             return View("Index", items);
         }
 
+        // Method for removing Item in ShoppingCart
+        [HttpPost]
+        public ActionResult RemoveFromCart(int id)
+        {
+            _shoppingCart.DeleteItem(id);
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
+            return View("Index", items);
+        }
+
+        // Edit and Update method for each item in shoppingcart
+        [HttpPost]
+        public ActionResult UpdateQuantity(int id, string action)
+        {
+            if (action == "increase")
+            {
+                _shoppingCart.IncreaseQuantity(id);
+            }
+            else if (action == "decrease")
+            {
+                _shoppingCart.DecreaseQuantity(id);
+            }
+
+            List<ShoppingCartItem> items = _shoppingCart.GetItems();
+            return View("Index", items);
+        }
     }
 }

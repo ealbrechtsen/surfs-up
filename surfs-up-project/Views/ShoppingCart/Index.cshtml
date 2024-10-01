@@ -2,37 +2,70 @@
 
 <div id="shopping-cart">
     <h1>Indkøbskurv</h1>
-    @foreach (var item in Model)
-    {
-        <div id="boardInformation">
-            <table>
-                <tr>
-                    <th>Id:</th>
-                    <th>Product-navn: </th>
-                    <th>Mængde:</th>
-                </tr>
+    <table >
+        <thead>
+            <tr>
+                <th>Id:</th>
+                <th>Billede</th>
+                <th>Produkt-navn:</th>
+                <th>Mængde:</th>
+                <!-- Empty column for update buttons (increase/decrease) -->
+                <th style="border: none;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>@item.Id</td>
+                    <td>
+                        <img src="@item.Product.ImagePath" alt="@item.Product.Name" style="height: 50px; width: auto;" />
+                    </td>
                     <td>@item.Product.Name</td>
-                    <td>@item.Quantity</td>
+                    <td>
+                        <!-- Column for the quantity update buttons (increase/decrease) -->
+                        @item.Quantity
+                        <form asp-action="UpdateQuantity" asp-controller="ShoppingCart" method="post" style="display:inline;">
+
+                            <!-- Hidden field to send the item's ID to the controller -->
+                            <input type="hidden" name="id" value="@item.Id" />
+
+                            <!-- Decrease button to reduce the quantity -->
+                            <button type="submit" name="action" value="decrease">-</button>
+
+                            <!-- Increase button to raise the quantity -->
+                            <button type="submit" name="action" value="increase">+</button>
+                        </form>
+                    </td>
+                    <td>
+                        <!-- Column for the Remove button to delete the item -->
+                        <form asp-action="RemoveFromCart" asp-controller="ShoppingCart" method="post">
+
+                            <!-- Hidden field to send the item's ID for removal -->
+                            <input type="hidden" name="id" value="@item.Id" />
+
+                            <!-- Remove button to delete the item from the cart -->
+                            <button type="submit">Slet</button>
+                        </form>
+                    </td>
                 </tr>
-            </table>
-        </div>
-    }
-    <!-- Booking datoer: Afhentning og levering -->
+            }
+        </tbody>
+    </table>
+    <!-- Booking dates: Pickup and Return -->
     <div class="booking-dates">
         <h3>Vælg dine booking datoer</h3>
 
         <form asp-controller="Shipping" asp-action="Index" method="post" class="form-container">
-            <!-- Formular til afhentningsdato og tidspunkt -->
+            <!-- Form field for pickup date and time -->
             <label for="pickUpDateTime" class="form-label">Afhentningsdato og -tidspunkt:</label>
             <input type="datetime-local" id="pickUpDateTime" name="PickUpDateTime" class="form-input" required />
 
-            <!-- Formular til afleveringsdato og tidspunkt -->
+            <!-- Form field for return date and time -->
             <label for="returnDateTime" class="form-label">Afleveringsdato og -tidspunkt:</label>
             <input type="datetime-local" id="returnDateTime" name="ReturnDateTime" class="form-input" required />
 
-            <!-- Submit knap -->
+            <!-- Submit button to proceed -->
             <button type="submit" class="form-button">Videre</button>
         </form>
 

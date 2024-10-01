@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title> <!-- Dynamic title for each view -->
+    <title>@ViewData.["Title"]</title>
     <!-- Link to CSS styles -->
     <link rel="stylesheet" href="~/css/style.css" />
 </head>
@@ -37,10 +38,12 @@
                     </ul>
                 </li>
                 <li><a>Kontakt</a></li>
-                <li><a asp-controller="shoppingcart" asp-action="index">Kurv</a></li>
+                <li><a asp-controller="shoppingcart" asp-action="index">Kurv</a></li>  
             </ul>
-        </nav>
+        </div>
+    </nav>
     </header>
+>>>>>>> main
 
     <!---------- CONTENT ----------->
     <div class="container">
