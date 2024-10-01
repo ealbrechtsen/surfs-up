@@ -7,7 +7,7 @@ namespace surfs_up_project.Controllers
 {
     public class ShoppingCartController : Controller
     {
-        private ShoppingCart _shoppingCart = new ShoppingCart();
+        private static ShoppingCart _shoppingCart = new ShoppingCart();
 
         public IActionResult Index()
         {
