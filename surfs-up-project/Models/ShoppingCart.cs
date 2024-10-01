@@ -12,11 +12,7 @@ namespace surfs_up_project.Models
             _items = new List<ShoppingCartItem>();
         }
 
-        // Egenskaber til at gemme afhentnings- og afleveringsdatoer
-        public DateTime PickUpDate { get; set; }
-        public DateTime ReturnDate { get; set; }
-
-        public void AddItem(Product product)
+        public void AddItem(Product product, DateTime pickUpDate, DateTime returnDate)
         {
             // Tjekker om produktet allerede er i indkøbskurven
             var existingItem = _items.FirstOrDefault(x => x.Product.ProductId == product.ProductId);
@@ -24,7 +20,7 @@ namespace surfs_up_project.Models
             {
                 // Hvis produktet ikke findes, tilføj det som et nyt item
                 var maxId = _items.Any() ? _items.Max(x => x.Id) : 0; // Tjekker om listen har elementer
-                var item = new ShoppingCartItem(maxId + 1, product); // Tilføj med en mængde på 1
+                var item = new ShoppingCartItem(maxId + 1, product, pickUpDate, returnDate); // Tilføj med en mængde på 1
                 _items.Add(item);
             }
             // Hvis produktet allerede findes, gør ingenting (eller håndter det på en anden måde, hvis nødvendigt)
