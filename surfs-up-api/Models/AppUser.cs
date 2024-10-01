@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace surfs_up_project.Models
+namespace surfs_up_api.Models
 {
     public class AppUser:IdentityUser
     {

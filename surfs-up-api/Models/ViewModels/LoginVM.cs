@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace surfs_up_project.Models.ViewModels
+namespace surfs_up_api.Models.ViewModels
 {
     public class LoginVM
     {

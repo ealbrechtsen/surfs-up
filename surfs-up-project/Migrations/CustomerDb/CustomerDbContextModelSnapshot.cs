@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using surfs_up_project.Data;
+using surfs_up_api.Data;
 
 #nullable disable
 
-namespace surfs_up_project.Migrations.CustomerDb
+namespace surfs_up_api.Migrations.CustomerDb
 {
     [DbContext(typeof(CustomerDbContext))]
     partial class CustomerDbContextModelSnapshot : ModelSnapshot

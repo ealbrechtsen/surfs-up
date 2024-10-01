@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using surfs_up_project.Data;
-using surfs_up_project.Models;
-using surfs_up_project.Models.ViewModels;
+using surfs_up_api.Data;
+using surfs_up_api.Models;
+using surfs_up_api.Models.ViewModels;
 using System.Reflection.Metadata;
 
-namespace surfs_up_project.Controllers
+namespace surfs_up_api.Controllers
 {
     public class AccountController : Controller
     {  

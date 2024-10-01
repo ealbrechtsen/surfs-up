@@ -1,4 +1,4 @@
-﻿namespace surfs_up_project.Models
+﻿namespace surfs_up_api.Models
 {
     public class CustomerRepository
     {

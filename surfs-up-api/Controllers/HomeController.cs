@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using surfs_up_project.Models;
+using surfs_up_api.Models;
 
-namespace surfs_up_project.Controllers
+namespace surfs_up_api.Controllers
 {
     public class HomeController : Controller
     {
