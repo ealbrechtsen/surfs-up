@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "surfs-up-api", "surfs-up-api.csproj", "{C5CC821D-3978-4393-9AF1-1525F810AF95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "surfs-up-api", "surfs-up-api\surfs-up-api.csproj", "{A260EA07-4C61-4364-BDAF-EA0254EE6943}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C5CC821D-3978-4393-9AF1-1525F810AF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5CC821D-3978-4393-9AF1-1525F810AF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5CC821D-3978-4393-9AF1-1525F810AF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5CC821D-3978-4393-9AF1-1525F810AF95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A260EA07-4C61-4364-BDAF-EA0254EE6943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A260EA07-4C61-4364-BDAF-EA0254EE6943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A260EA07-4C61-4364-BDAF-EA0254EE6943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A260EA07-4C61-4364-BDAF-EA0254EE6943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BCB0F259-B558-48EC-96F2-B380C9DB5AA5}
+		SolutionGuid = {BEC06C1A-72B8-4A42-AF48-CAE23281B357}
 	EndGlobalSection
 EndGlobal
