@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@* @using Microsoft.AspNetCore.Identity
 @inject SignInManager<AppUser> signInManager
 <ul class="navbar-nav">
     @if (signInManager.IsSignedIn(User))
@@ -26,4 +26,4 @@
             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log ind</a>
         </li>
     }
-</ul>
+</ul> *@

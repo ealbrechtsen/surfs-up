@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using surfs_up_api.Models;
 
 namespace surfs_up_api.Controllers
@@ -7,11 +8,17 @@ namespace surfs_up_api.Controllers
     [Route("api/[controller]")]
     public class RentalController : ControllerBase
     {
+        private readonly AppDbContext _context;
+
+        public RentalController(AppDbContext context)
+        {
+            _context = context;
+        }
         // GET: api/rental/boards
         [HttpGet("boards")]
         public IActionResult GetBoards()
         {
-            var boards = ProductRepository.GetProducts();
+            var boards = _context.Products.ToList();
             if (boards == null || !boards.Any())
             {
                 return NotFound(new { message = "No boards found" });
@@ -21,21 +28,21 @@ namespace surfs_up_api.Controllers
 
         // GET: api/rental/board/{id}
         [HttpGet("board/{id}")]
-        public IActionResult GetBoard(int? id)
+        public async Task<IActionResult> GetBoard(int id)
         {
-            if (id == null)
-            {
-                return BadRequest(new { message = "Board ID is required" });
-            }
+            // Find produktet baseret på ID
+            var board = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == id && p.Type == "Board");
 
-            var board = ProductRepository.GetProductById(id);
+            // Tjek om produktet blev fundet
             if (board == null)
             {
                 return NotFound(new { message = $"Board with ID {id} not found" });
             }
 
+            // Returner produktet som JSON
             return Ok(board);
         }
+
 
         // GET: api/rental/wetsuit/{id}
         [HttpGet("wetsuit/{id}")]
