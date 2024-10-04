@@ -1,9 +1,15 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using surfs_up_project.Models;
-
+using surfs_up_project.Middleware;
+using surfs_up_project.Services; // Tilføj denne linje
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<ApiLogService>(client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5001/"); // Juster til din API's URL
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 
@@ -12,8 +18,10 @@ var app = builder.Build();
 app.UseStaticFiles();
 app.UseRouting();
 
-//SeedDatabase(app);
+// Her registrerer vi middleware
+app.UseMiddleware<RequestLoggingMiddleware>(); // Tilføj denne linje
 
+//SeedDatabase(app); // Hvis du har seeding logik, kan du genaktivere den her
 
 app.MapControllerRoute(
     name: "default",
@@ -26,9 +34,7 @@ using (var scope = app.Services.CreateScope())
 
 app.Run();
 
-
 /*
-// Program.cs SEEDING LOGIC (Måske)
 void SeedDatabase(IHost app)
 {
     using (var scope = app.Services.CreateScope())
@@ -44,10 +50,6 @@ void SeedDatabase(IHost app)
             dbContext.Products.AddRange(products);
             dbContext.SaveChanges();
         }
-
-
     }
-
 }
-
 */

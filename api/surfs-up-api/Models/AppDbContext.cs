@@ -8,11 +8,9 @@ namespace surfs_up_api.Models
         public DbSet<Product> Products { get; set; }
         
 
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-        {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){ }
 
-        }
-        
+
         // OnModelCreating SEEDING LOGIC (måske)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

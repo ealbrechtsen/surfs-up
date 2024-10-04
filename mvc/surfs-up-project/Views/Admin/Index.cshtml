@@ -1,0 +1,24 @@
+﻿@model IEnumerable<dynamic> 
+@{
+    ViewData["Title"] = "API Call Statistics";
+}
+
+<h2>API Call Statistics</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Number of Calls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserId</td>
+                <td>@user.CallCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
