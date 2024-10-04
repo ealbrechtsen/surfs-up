@@ -12,7 +12,7 @@ var connectionString1 = builder.Configuration.GetConnectionString("DbConnectionS
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(connectionString1));
 
-
+builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CustomerDbContext>(
     options => options.UseSqlServer(connectionString));
