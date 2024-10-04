@@ -1,7 +1,6 @@
-﻿@* @using Microsoft.AspNetCore.Identity
-@inject SignInManager<AppUser> signInManager
+﻿@using Microsoft.AspNetCore.Identity
 <ul class="navbar-nav">
-    @if (signInManager.IsSignedIn(User))
+    @if (User.Identity.IsAuthenticated)
     {
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,4 +25,4 @@
             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Log ind</a>
         </li>
     }
-</ul> *@
+</ul>
