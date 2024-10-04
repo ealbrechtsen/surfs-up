@@ -1,22 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using surfs_up_api.Data;
 using surfs_up_api.Models;
 using surfs_up_api.Models.ViewModels;
-using System.Reflection.Metadata;
 
 namespace surfs_up_api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly SignInManager<AppUser> signInManager;
         private readonly UserManager<AppUser> userManager;
         private readonly CustomerDbContext _context;
-
-
 
         public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, CustomerDbContext context)
         {
@@ -24,72 +20,61 @@ namespace surfs_up_api.Controllers
             this.userManager = userManager;
             _context = context;
         }
-        //This method handles GET requests to render the login page
-       [HttpGet]
-        public IActionResult Login()
+
+        // Handles POST requests for login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginVM model)
         {
-            return View();
-        }
-        // This method handles POST requests for login form submission
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginVM model)
-        {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                //login
-                var result = await signInManager.PasswordSignInAsync(model.UserName!, model.Password!, model.RememberMe, false);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-                ModelState.AddModelError("", "Forkert Brugernavn eller adgangskode");
-                return View(model);
-
-
+                return BadRequest(ModelState);
             }
-            return View(model);
-        }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterVM model)
-        {
-            if (ModelState.IsValid)
+            var result = await signInManager.PasswordSignInAsync(model.UserName!, model.Password!, model.RememberMe, false);
+            if (result.Succeeded)
             {
-                AppUser user = new()
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    UserName = model.UserName,
-                    Email = model.Email,
-                    Address = model.Address,
-                    ZipCode = model.ZipCode,
-                    City = model.City
-
-                };
-                var result = await userManager.CreateAsync(user, model.Password!);
-                if (result.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, false);
-
-                    return RedirectToAction("Index", "Home");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
+                return Ok(new { message = "Login successful" });
             }
-            return View(model);
+
+            return Unauthorized(new { message = "Forkert brugernavn eller adgangskode" });
         }
 
+        // Handles POST requests for registering a new user
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            AppUser user = new()
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                UserName = model.UserName,
+                Email = model.Email,
+                Address = model.Address,
+                ZipCode = model.ZipCode,
+                City = model.City
+            };
+
+            var result = await userManager.CreateAsync(user, model.Password!);
+            if (result.Succeeded)
+            {
+                await signInManager.SignInAsync(user, false);
+                return Ok(new { message = "User registered successfully" });
+            }
+
+            return BadRequest(result.Errors);
+        }
+
+        // Handles POST requests for logging out
+        [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return Ok(new { message = "Logged out successfully" });
         }
     }
 }
