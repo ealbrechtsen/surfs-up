@@ -3,30 +3,74 @@ using surfs_up_api.Models;
 
 namespace surfs_up_api.Controllers
 {
-    public class RentalController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class RentalController : ControllerBase
     {
-        public IActionResult Boards()
+        // GET: api/rental/boards
+        [HttpGet("boards")]
+        public IActionResult GetBoards()
         {
             var boards = ProductRepository.GetProducts();
-            return View(boards);
+            if (boards == null || !boards.Any())
+            {
+                return NotFound(new { message = "No boards found" });
+            }
+            return Ok(boards);
         }
 
-        public IActionResult Board(int? id)
+        // GET: api/rental/board/{id}
+        [HttpGet("board/{id}")]
+        public IActionResult GetBoard(int? id)
         {
+            if (id == null)
+            {
+                return BadRequest(new { message = "Board ID is required" });
+            }
+
             var board = ProductRepository.GetProductById(id);
-            return View(board);
+            if (board == null)
+            {
+                return NotFound(new { message = $"Board with ID {id} not found" });
+            }
+
+            return Ok(board);
         }
 
-        public IActionResult Wetsuit(int? id)
+        // GET: api/rental/wetsuit/{id}
+        [HttpGet("wetsuit/{id}")]
+        public IActionResult GetWetsuit(int? id)
         {
-            var board = ProductRepository.GetProductById(id);
-            return View(board);
+            if (id == null)
+            {
+                return BadRequest(new { message = "Wetsuit ID is required" });
+            }
+
+            var wetsuit = ProductRepository.GetProductById(id);
+            if (wetsuit == null)
+            {
+                return NotFound(new { message = $"Wetsuit with ID {id} not found" });
+            }
+
+            return Ok(wetsuit);
         }
 
-        public IActionResult Equipment(int? id)
+        // GET: api/rental/equipment/{id}
+        [HttpGet("equipment/{id}")]
+        public IActionResult GetEquipment(int? id)
         {
-            var board = ProductRepository.GetProductById(id);
-            return View(board);
+            if (id == null)
+            {
+                return BadRequest(new { message = "Equipment ID is required" });
+            }
+
+            var equipment = ProductRepository.GetProductById(id);
+            if (equipment == null)
+            {
+                return NotFound(new { message = $"Equipment with ID {id} not found" });
+            }
+
+            return Ok(equipment);
         }
     }
 }

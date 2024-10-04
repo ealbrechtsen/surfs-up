@@ -1,45 +1,66 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_api.Models;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
 
 namespace surfs_up_api.Controllers
 {
-    public class ConfirmedController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ConfirmedController : ControllerBase
     {
-        private ShoppingCart _shoppingCart = new ShoppingCart();
+        private readonly ShoppingCart _shoppingCart = new ShoppingCart();
 
-        public IActionResult Index(string firstName, string lastName, string email, string phoneNumber, string address, int zipCode, string city)
+        // POST: api/confirmed
+        [HttpPost("confirm")]
+        public IActionResult ConfirmOrder([FromBody] CustomerVM customerData)
         {
-            // Opretter en Customer-objekt med de data, der er sendt til metoden
+            if (customerData == null)
+            {
+                return BadRequest(new { message = "Invalid customer data" });
+            }
+
+            // Opretter en Customer-objekt med de data, der er modtaget
             var customer = new Customer
             {
-                FirstName = firstName,
-                LastName = lastName,
-                Email = email,
-                PhoneNumber = phoneNumber,
-                Address = address,
-                ZipCode = zipCode,
-                City = city
+                FirstName = customerData.FirstName,
+                LastName = customerData.LastName,
+                Email = customerData.Email,
+                PhoneNumber = customerData.PhoneNumber,
+                Address = customerData.Address,
+                ZipCode = customerData.ZipCode,
+                City = customerData.City
             };
 
-            // Opretter en Product-objekt med eksempeldata (du skal tilpasse dette efter dine behov)
+            // Henter varerne fra indkøbskurven
             List<ShoppingCartItem> items = _shoppingCart.GetItems();
 
-            // Opretter en ConfirmedViewModel-objekt og tildeler customer og product
+            // Opretter en ConfirmedViewModel-objekt med customer og items
             var model = new OrderConfirmedVM
             {
                 Customer = customer,
                 Items = items
             };
 
-            // Sender modellen til viewet
-            return View(model);
+            // Returnerer modellen som JSON-respons
+            return Ok(model);
         }
-        
-        public IActionResult OrderConfirmed () 
+
+        // GET: api/confirmed/order-confirmed
+        [HttpGet("order-confirmed")]
+        public IActionResult OrderConfirmed()
         {
-            return View();
+            return Ok(new { message = "Order has been confirmed" });
         }
+    }
+
+    // ViewModel til at modtage kundedata
+    public class CustomerVM
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Address { get; set; }
+        public int ZipCode { get; set; }
+        public string City { get; set; }
     }
 }

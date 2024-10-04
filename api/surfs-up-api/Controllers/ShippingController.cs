@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_api.Models;
 using System;
+using System.Collections.Generic;
 
 namespace surfs_up_api.Controllers
 {
-    public class ShippingController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ShippingController : ControllerBase
     {
         private readonly ShoppingCart _shoppingCart;
 
@@ -14,33 +17,47 @@ namespace surfs_up_api.Controllers
             _shoppingCart = shoppingCart ?? new ShoppingCart(); // Sørg for at _shoppingCart er initialiseret
         }
 
-        // GET: Shipping/Index
-        public IActionResult Index()
+        // GET: api/shipping
+        [HttpGet]
+        public IActionResult GetItems()
         {
             // Hent varer fra indkøbskurven
             var items = _shoppingCart.GetItems();
-            return View(items); // Returner til visning
+            if (items == null || items.Count == 0)
+            {
+                return NotFound(new { message = "Shopping cart is empty" });
+            }
+
+            // Returner indholdet af indkøbskurven som JSON
+            return Ok(items);
         }
 
-        // POST: Shipping/Index
+        // POST: api/shipping
         [HttpPost]
-        public IActionResult Index(DateTime pickUpDateTime, DateTime returnDateTime)
+        public IActionResult UpdateShippingDates([FromBody] ShippingDateVM shippingDates)
         {
-            // Tjek om modelstate er gyldig
+            // Tjek om modellen er gyldig
             if (!ModelState.IsValid)
             {
-                // Hvis ikke gyldig, vis den samme visning med fejlmeddelelser
-                var items = _shoppingCart.GetItems();
-                return View(items); // Returner indholdet af indkøbskurven og vis eventuelle fejl
+                return BadRequest(ModelState);
             }
 
             // Opdater afhentnings- og afleveringsdato i indkøbskurven
-            _shoppingCart.PickUpDate = pickUpDateTime;
-            _shoppingCart.ReturnDate = returnDateTime;
+            _shoppingCart.PickUpDate = shippingDates.PickUpDate;
+            _shoppingCart.ReturnDate = shippingDates.ReturnDate;
 
             // Hent opdaterede varer fra indkøbskurven
             var updatedItems = _shoppingCart.GetItems();
-            return View(updatedItems); // Returner til visning med opdaterede data
+
+            // Returner opdaterede varer som JSON
+            return Ok(new { items = updatedItems, pickUpDate = _shoppingCart.PickUpDate, returnDate = _shoppingCart.ReturnDate });
         }
+    }
+
+    // ViewModel til at modtage afhentnings- og afleveringsdatoer
+    public class ShippingDateVM
+    {
+        public DateTime PickUpDate { get; set; }
+        public DateTime ReturnDate { get; set; }
     }
 }

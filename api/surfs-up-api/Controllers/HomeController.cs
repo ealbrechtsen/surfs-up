@@ -1,23 +1,36 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using surfs_up_api.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace surfs_up_api.Controllers
 {
-    public class HomeController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class HomeController : ControllerBase
     {
-        private AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;
 
+        // Dependency injection af AppDbContext
         public HomeController(AppDbContext appDbContext)
         {
-            //Dependency injection
             _appDbContext = appDbContext;
         }
-        public IActionResult Index()
-        {
 
+        // GET: api/home
+        [HttpGet]
+        public IActionResult GetProducts()
+        {
+            // Henter listen af produkter fra databasen
             var products = _appDbContext.Products.ToList();
-            return View();
+
+            if (products == null || !products.Any())
+            {
+                return NotFound(new { message = "No products found" });
+            }
+
+            // Returnerer produkterne som JSON
+            return Ok(products);
         }
     }
 }
