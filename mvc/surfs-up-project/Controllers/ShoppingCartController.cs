@@ -17,7 +17,7 @@ namespace surfs_up_project.Controllers
         [HttpPost]
         public ActionResult AddToCart(int productId)
         {
-            var product = ProductRepository.GetProductById(productId);
+            var product = ProductRepository.GetById(productId);
             if (product != null)
             {
                 _shoppingCart.AddItem(product); // Tilføj produktet uden mængde

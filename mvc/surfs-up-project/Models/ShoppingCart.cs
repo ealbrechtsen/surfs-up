@@ -16,7 +16,7 @@ namespace surfs_up_project.Models
         public DateTime PickUpDate { get; set; }
         public DateTime ReturnDate { get; set; }
 
-        public void AddItem(Product product)
+        public void AddItem(Board product)
         {
             // Tjekker om produktet allerede er i indkøbskurven
             var existingItem = _items.FirstOrDefault(x => x.Product.ProductId == product.ProductId);

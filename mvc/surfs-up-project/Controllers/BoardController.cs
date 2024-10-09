@@ -5,12 +5,12 @@ using surfs_up_project.Models;
 
 namespace surfs_up_project.Controllers
 {
-    public class RentalController : Controller
+    public class BoardController : Controller
     {
         private readonly string apiUrl = "https://localhost:7010/api/"; // 7010 is defined when creating project
         public async Task<IActionResult> Boards()
         {
-            List<Product>? products = [];
+            List<Board>? products = [];
             using (var httpClient = new HttpClient())
             {
                 using (var response = await httpClient.GetAsync(apiUrl + "rental/boards/"))
@@ -18,7 +18,7 @@ namespace surfs_up_project.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         string payload = await response.Content.ReadAsStringAsync();
-                        products = JsonConvert.DeserializeObject<List<Product>>(payload);
+                        products = JsonConvert.DeserializeObject<List<Board>>(payload);
                     }
                     else
                     {
@@ -31,7 +31,7 @@ namespace surfs_up_project.Controllers
 
         public IActionResult Board(int? id)
         {
-            var board = ProductRepository.GetProductById(id);
+            var board = ProductRepository.GetById(id);
             return View(board);
         }
 
