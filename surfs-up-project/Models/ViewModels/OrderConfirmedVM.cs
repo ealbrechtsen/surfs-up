@@ -5,6 +5,13 @@
     {
         public Customer Customer { get; set; }
         public List<ShoppingCartItem> Items { get; set;}
+
+        /*
+        public OrderConfirmedVM() 
+        { 
+            Items = new List<ShoppingCartItem>();
+        }
+        */
     }
 }
 

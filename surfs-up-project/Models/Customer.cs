@@ -12,7 +12,7 @@
         public string? City { get; set; }
 
         //// Foreign Key to AppUser (this links Customer to Identity)
-        public string? AppUserId { get; set; }
-        public AppUser? AppUser { get; set; } // Navigation property to AppUser
+        //public string? AppUserId { get; set; }
+        //public AppUser? AppUser { get; set; } // Navigation property to AppUser
     }
 }

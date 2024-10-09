@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Connection strings
 var connectionString = builder.Configuration.GetConnectionString("CustomerConnection");
 var connectionString1 = builder.Configuration.GetConnectionString("DbConnectionString");
+var connectionString2 = builder.Configuration.GetConnectionString("NewCustomerConnection");
 
 // Database context for AppDbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -16,6 +17,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Database context for CustomerDbContext
 builder.Services.AddDbContext<CustomerDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<NCustomerDbContext>(options =>
+    options.UseSqlServer(connectionString2));
+builder.Services.AddScoped<CustomerRepository>();
 
 // Identity services
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
