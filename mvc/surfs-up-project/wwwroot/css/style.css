@@ -342,6 +342,7 @@ h1 {
     justify-content: center;
     gap: 10px;
     flex: 1;
+    flex-wrap: wrap;
 }
 
 .boardbox {
