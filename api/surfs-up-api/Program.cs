@@ -1,4 +1,3 @@
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using surfs_up_api.Data;
@@ -15,6 +14,17 @@ namespace surfs_up_api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MobilKlient", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("https://localhost:9999", "http://localhost:9999") // Your allowed origin
+                    .AllowAnyMethod() // Allows all HTTP methods
+                    .AllowAnyHeader() // Allows all headers
+                    .AllowCredentials(); // Allow cookies, authorization headers, etc.
+                });
+            });
 
             builder.Services.AddControllers();
 
@@ -50,6 +60,9 @@ namespace surfs_up_api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            //app.UseCors("mvcApp");
+            app.UseCors("MobilKlient");
 
             app.UseHttpsRedirection();
 
