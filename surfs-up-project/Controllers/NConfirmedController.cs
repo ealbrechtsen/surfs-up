@@ -75,6 +75,17 @@ public class NConfirmedController : Controller
             Price = 499
         };
 
+        var product1 = new Product
+        {
+            Name = "TestyTest",
+            Length = 8.1,
+            Width = 22.0,
+            Thickness = 5.6,
+            Price = 799
+        };
+
+        
+
         // Creating a ShoppingCartItem with dummy data
         var shoppingCartItem = new ShoppingCartItem(1, product, 2);
         // Return the list of products in the shopping cart (dummy data for now)
