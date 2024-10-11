@@ -13,6 +13,6 @@ namespace surfs_up_api.Data
         {
 
         }
-        public DbSet<Customer> Customers { get; set; }
+        
     }
 }

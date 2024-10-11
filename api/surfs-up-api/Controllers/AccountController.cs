@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using surfs_up_api.Data;
 using surfs_up_api.Models;
@@ -7,6 +8,7 @@ using surfs_up_api.Models.ViewModels;
 namespace surfs_up_api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
@@ -37,6 +39,13 @@ namespace surfs_up_api.Controllers
             }
 
             return Unauthorized(new { message = "Forkert brugernavn eller adgangskode" });
+        }
+
+        [HttpGet("User")]
+        public IActionResult Get()
+        {
+            var userName = User.Identity?.Name;
+            return Ok($"Hello, {userName}!");
         }
 
         // Handles POST requests for registering a new user
