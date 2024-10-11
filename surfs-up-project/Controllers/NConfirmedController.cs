@@ -74,7 +74,7 @@ public class NConfirmedController : Controller
             Thickness = 2.5,
             Price = 499
         };
-
+        
         var product1 = new Product
         {
             Name = "TestyTest",
@@ -83,7 +83,7 @@ public class NConfirmedController : Controller
             Thickness = 5.6,
             Price = 799
         };
-
+      
         
 
         // Creating a ShoppingCartItem with dummy data
