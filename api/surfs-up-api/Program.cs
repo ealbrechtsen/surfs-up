@@ -21,8 +21,13 @@ namespace surfs_up_api
                 {
                     policyBuilder.WithOrigins("https://localhost:9999", "http://localhost:9999") // Your allowed origin
                     .AllowAnyMethod() // Allows all HTTP methods
-                    .AllowAnyHeader() // Allows all headers
-                    .AllowCredentials(); // Allow cookies, authorization headers, etc.
+                    .AllowAnyHeader(); // Allows all headers
+                });
+                options.AddPolicy("MvcApp", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("https://localhost:7014", "http://localhost:5174") // Your allowed origin
+                    .AllowAnyMethod() // Allows all HTTP methods
+                    .AllowAnyHeader(); // Allows all headers
                 });
             });
 
@@ -61,7 +66,7 @@ namespace surfs_up_api
                 app.UseSwaggerUI();
             }
 
-            //app.UseCors("mvcApp");
+            app.UseCors("MvcApp");
             app.UseCors("MobilKlient");
 
             app.UseHttpsRedirection();
