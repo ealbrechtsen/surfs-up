@@ -8,8 +8,17 @@ body {
     flex-direction: column;
 }
 
-.img-container {
+header {
+    display: flex;
+    /* Enables Flexbox layout */
+    justify-content: space-between;
+    /* Space between logo and menu */
+    align-items: center;
+    /* Aligns items vertically in the center */
     background-color: #CC7723;
+}
+
+.img-container {
     display: flex;
     align-items: center;
     padding: 5px;
@@ -37,34 +46,19 @@ body {
     margin-top: 10px;
 }
 
-.header-container {
-    display: flex;
-    /* Enables Flexbox layout */
-    justify-content: space-between;
-    /* Space between logo and menu */
-    align-items: center;
-    /* Aligns items vertically in the center */
-}
-
-.nav-top {
-    background-color: #CC7723;
-}
-
-h3 {
-    text-align: center;
-}
-
 /*   Container for menu  */
-#menu {
-    list-style-type: none;
-    /*Fjerner bullet points * */
+.navbar {
     display: flex;
-    text-align: center;
-    background-color: #CC7723;
-    height: 81px;
     margin-right: 120px;
 }
 
+#menu {
+    display: flex;
+    list-style-type: none;
+    /*Fjerner bullet points * */
+    text-align: center;
+    height: 81px;
+}
 
 /*viser items i en række*/
 li {
@@ -80,6 +74,7 @@ li {
         text-decoration: none;
         padding: 30px 40px; /* Øget padding */
         font-size: 18px; /* Større tekst */
+        white-space: nowrap;
     }
 
     li:hover {
@@ -347,6 +342,7 @@ h1 {
     justify-content: center;
     gap: 10px;
     flex: 1;
+    flex-wrap: wrap;
 }
 
 .boardbox {
@@ -537,3 +533,11 @@ footer {
     .form-button:hover {
         background-color: #0056b3;
     }
+
+/* ------------------------------------------------------- MEDIA RULES ------------------------------------------------------------ */
+
+@media only screen and (max-width: 1000px) {
+    li a {
+        padding: 30px 30px;
+    }
+}
