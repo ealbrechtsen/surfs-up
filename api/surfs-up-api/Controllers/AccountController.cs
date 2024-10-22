@@ -8,7 +8,6 @@ using surfs_up_api.Models.ViewModels;
 namespace surfs_up_api.Controllers
 {
     [ApiController]
-    [Authorize]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
