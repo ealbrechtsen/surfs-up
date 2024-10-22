@@ -14,6 +14,7 @@ namespace surfs_up_api.Controllers
         {
             _context = context;
         }
+
         // GET: api/rental/boards
         [HttpGet("boards")]
         public IActionResult GetBoards()
