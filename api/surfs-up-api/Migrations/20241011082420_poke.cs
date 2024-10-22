@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace surfs_up_api.Migrations
+namespace surfs_up_api.Migrations.CustomerDb
 {
     /// <inheritdoc />
     public partial class poke : Migration
