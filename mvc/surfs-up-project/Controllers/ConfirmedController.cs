@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using surfs_up_api.Models;
+using surfs_up_project.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 
-namespace surfs_up_api.Controllers
+namespace surfs_up_project.Controllers
 {
     public class ConfirmedController : Controller
     {
