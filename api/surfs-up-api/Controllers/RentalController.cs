@@ -10,21 +10,24 @@ namespace surfs_up_api.Controllers
     {
         private readonly AppDbContext _context;
 
-        public RentalController(AppDbContext context)
-        {
-            _context = context;
-        }
-
         // GET: api/rental/boards
         [HttpGet("boards")]
         public IActionResult GetBoards()
         {
+            // Get boards from database via _context
             var boards = _context.Products.ToList();
             if (boards == null || !boards.Any())
             {
+                // If no boards are found, return error
                 return NotFound(new { message = "No boards found" });
             }
+            // Return boards with HTTP 200 as JSON
             return Ok(boards);
+        }
+
+        public RentalController(AppDbContext context)
+        {
+            _context = context;
         }
 
         // GET: api/rental/board/{id}
