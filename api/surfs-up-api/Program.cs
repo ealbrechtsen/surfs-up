@@ -37,8 +37,10 @@ namespace surfs_up_api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Identity
             var connectionString = builder.Configuration.GetConnectionString("CustomerConnection");
 
+            // Surfboards
             var connectionString1 = builder.Configuration.GetConnectionString("DbConnectionString");
             builder.Services.AddDbContext<AppDbContext>(
                 options => options.UseSqlServer(connectionString1));
