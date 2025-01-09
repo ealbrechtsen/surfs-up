@@ -5,10 +5,8 @@ using surfs_up_api.Models;
 
 namespace surfs_up_api
 {
-
     public class Program
     {
-
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -69,8 +67,8 @@ namespace surfs_up_api
             app.UseCors("MvcApp");
             app.UseCors("MobilKlient");
 
+            app.UseMiddleware<ApiLoggingMiddleware>();
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
 
 
