@@ -5,20 +5,20 @@
         public static List<Product> ToProducts(string csvPath)
         {
             List<Product> products = new List<Product>();
-            string[] lines = csvPath.Split('\n');
+            string[] lines = File.ReadAllLines(csvPath);
             foreach (string line in lines)
             {
                 string[] parts = line.Split(';');
                 Product product = new Product
                 {
-                    Name = parts[1],
-                    ImagePath = parts[2],
-                    Length = double.Parse(parts[3]),
-                    Width = double.Parse(parts[4]),
-                    Thickness = double.Parse(parts[5]),
-                    Volume = double.Parse(parts[6]),
-                    Type = parts[7],
-                    Price = double.Parse(parts[8])
+                    Name = parts[0],
+                    ImagePath = parts[1],
+                    Length = double.Parse(parts[2]),
+                    Width = double.Parse(parts[3]),
+                    Thickness = double.Parse(parts[4]),
+                    Volume = double.Parse(parts[5]),
+                    Type = parts[6],
+                    Price = double.Parse(parts[7])
                 };
                 products.Add(product);
             }
