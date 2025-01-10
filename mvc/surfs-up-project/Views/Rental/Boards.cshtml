@@ -13,7 +13,7 @@
         <div class="boardbox" id="board-@board.ProductId">
             <a asp-controller="rental" asp-action="board" asp-route-id="@board.ProductId">
                 <h3>@board.Name</h3>
-                <img src="@board.ImagePath">
+                <img src="/images/boards/@board.ImagePath"> @* Check if path found *@
                 <span>@board.Price kr.</span>
             </a>
 
