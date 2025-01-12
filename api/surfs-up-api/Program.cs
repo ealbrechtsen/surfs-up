@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using surfs_up_api.Data;
-using surfs_up_api.Infrastructure;
 using surfs_up_api.Models;
 
 namespace surfs_up_api
@@ -67,7 +66,6 @@ namespace surfs_up_api
                 app.UseSwaggerUI();
             }
 
-            app.UseMiddleware<LoggingMiddleware>();
             app.UseCors("MvcApp");
             app.UseCors("MobilKlient");
 
