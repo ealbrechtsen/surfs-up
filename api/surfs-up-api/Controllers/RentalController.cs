@@ -45,13 +45,6 @@ namespace surfs_up_api.Controllers
         [HttpGet("boards")]
         public IActionResult GetBoards()
         {
-            //var boards = _context.Products.ToList();
-            //if (boards.IsNullOrEmpty())
-            //{
-            //    return NotFound(new { message = "No boards found" });
-            //}
-            //return Ok(boards);
-
             var boards = _context.Products.ToList();
             if (boards.IsNullOrEmpty())
             {
