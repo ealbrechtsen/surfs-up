@@ -18,28 +18,7 @@ namespace surfs_up_api.Controllers
         }
 
         // POST: api/rental/boards
-        [HttpPost("boards")]
-        public IActionResult PostBoards([FromBody] List<Product> products)
-        {
-            if (products.IsNullOrEmpty())
-            {
-                return BadRequest();
-            }
-
-            EmptyDB();
-
-            try
-            {
-                _context.Products.AddRange(products);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-
-            return CreatedAtAction(nameof(PostBoards), products);
-        }
+        // ...
 
         // GET: api/rental/boards
         [HttpGet("boards")]

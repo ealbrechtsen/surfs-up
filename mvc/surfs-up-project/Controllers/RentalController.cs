@@ -18,16 +18,11 @@ namespace surfs_up_project.Controllers
             List<Product> productsGet = new List<Product>();
 
             List<Product> productsPost = new List<Product>();
-            productsPost = CsvConverter.ToProducts(csvBoards);
-            string json = JsonConvert.SerializeObject(productsPost);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            // Start
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.PostAsync(apiUrl + "/rental/boards", content))
-                {
-                    if (!response.IsSuccessStatusCode) return BadRequest(response.StatusCode);
-                }
+                // Post
 
                 using (var response = await httpClient.GetAsync(apiUrl + "/rental/boards"))
                 {
