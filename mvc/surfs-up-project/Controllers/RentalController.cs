@@ -8,58 +8,36 @@ namespace surfs_up_project.Controllers
 {
     public class RentalController : Controller
     {
-        private readonly string apiUrl = "https://localhost:7010/api/"; // 7010 is defined when creating project
+        private readonly string apiUrl = "https://localhost:7010/api"; // 7010 is defined when creating project
 
+        private string csvDefault = @"C:\Users\Asus\source\repos\GIT_surfs-up\mvc\surfs-up-project\wwwroot\default.csv";
+        private string csvBoards = @"C:\Users\Asus\source\repos\GIT_surfs-up\mvc\surfs-up-project\wwwroot\boards.csv";
 
         public async Task<IActionResult> Boards()
         {
-            // Define empty list of products
-            List<Product>? products = [];
-
-            // Convert CSV to list of Products
-            List<Product>? productsToPost = CsvConverter.ToProducts(@"C:\Users\Asus\source\repos\GIT_surfs-up\mvc\surfs-up-project\wwwroot\boards.csv");
-
-            // Serialize list of products to JSON
-            string json = JsonConvert.SerializeObject(productsToPost);
-
-            // Create content to send to API
+            List<Product> productsPost = new List<Product>();
+            productsPost = CsvConverter.ToProducts(csvBoards);
+            string json = JsonConvert.SerializeObject(productsPost);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            // Create HttpClient instance to handle request
             using (var httpClient = new HttpClient())
             {
-                // Call API and await response
-                using (var response = await httpClient.PostAsync(apiUrl + "rental/boards/", content))
+                using (var response = await httpClient.PostAsync(apiUrl + "/rental/boards", content))
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // If success, do nothing
-                    }
-                    else
-                    {
-                        // Otherwise return error
-                        return BadRequest($"API request failed with status code {response.StatusCode}");
-                    }
+                    if (!response.IsSuccessStatusCode) return BadRequest(response.StatusCode.ToString());
                 }
 
-                // Call API and await response
-                using (var response = await httpClient.GetAsync(apiUrl + "rental/boards/"))
+                using (var response = await httpClient.GetAsync(apiUrl + "rental/boards"))
                 {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // If success, add products to list
-                        string payload = await response.Content.ReadAsStringAsync();
-                        products = JsonConvert.DeserializeObject<List<Product>>(payload);
-                    }
+                    if (!response.IsSuccessStatusCode) return NotFound(response.StatusCode.ToString());
                     else
                     {
-                        // Otherwise return error
-                        return BadRequest($"API request failed with status code {response.StatusCode}");
+                        string payload = await response.Content.ReadAsStringAsync();
+                        List<Product> productsGet = JsonConvert.DeserializeObject<List<Product>>(payload);
+                        return View(productsGet);
                     }
                 }
             }
-
-            return View(products);
         }
 
         public IActionResult Board(int? id)

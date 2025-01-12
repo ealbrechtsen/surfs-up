@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using surfs_up_api.Models;
 
 namespace surfs_up_api.Controllers
@@ -10,48 +11,52 @@ namespace surfs_up_api.Controllers
     {
         private readonly AppDbContext _context;
 
+        private void EmptyDB()
+        {
+            _context.Products.RemoveRange(_context.Products);
+            _context.SaveChanges();
+        }
+
         // POST: api/rental/boards
         [HttpPost("boards")]
         public IActionResult PostBoards([FromBody] List<Product> products)
         {
-            if (products == null || !products.Any())
+            if (products.IsNullOrEmpty())
             {
-                // Return 400 Bad Request, if hvis input is invalid
-                return BadRequest(new { message = "Product list cannot be null or empty" });
+                return BadRequest();
             }
+
+            EmptyDB();
 
             try
             {
-                // Empty database of existing boards
-                _context.Products.RemoveRange(_context.Products);
-                _context.SaveChanges();
-
-                // Add new boards to database
                 _context.Products.AddRange(products);
                 _context.SaveChanges();
-
-                // Return added products with 201 Created
-                return CreatedAtAction(nameof(GetBoards), new { count = products.Count }, products);
             }
             catch (Exception ex)
             {
-                // Hvis der opstår en fejl, returnér 500 Internal Server Error
-                return StatusCode(500, new { message = "An error occurred while saving the boards", details = ex.Message });
+                return StatusCode(500, ex.Message);
             }
+
+            return CreatedAtAction(nameof(PostBoards), products);
         }
 
         // GET: api/rental/boards
         [HttpGet("boards")]
         public IActionResult GetBoards()
         {
-            // Get all boards from database
+            //var boards = _context.Products.ToList();
+            //if (boards.IsNullOrEmpty())
+            //{
+            //    return NotFound(new { message = "No boards found" });
+            //}
+            //return Ok(boards);
+
             var boards = _context.Products.ToList();
-            if (boards == null || !boards.Any())
+            if (boards.IsNullOrEmpty())
             {
-                // Return 404 Not Found, if no boards are found
-                return NotFound(new { message = "No boards found" });
+                return NotFound();
             }
-            // Return all boards with as JSON with 200 OK
             return Ok(boards);
         }
 
