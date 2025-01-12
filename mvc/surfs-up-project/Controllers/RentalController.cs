@@ -15,8 +15,10 @@ namespace surfs_up_project.Controllers
 
         public async Task<IActionResult> Boards()
         {
+            List<Product> productsGet = new List<Product>();
+
             List<Product> productsPost = new List<Product>();
-            productsPost = CsvConverter.ToProducts(csvBoards);
+            productsPost = CsvConverter.ToProducts(csvDefault);
             string json = JsonConvert.SerializeObject(productsPost);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -24,20 +26,21 @@ namespace surfs_up_project.Controllers
             {
                 using (var response = await httpClient.PostAsync(apiUrl + "/rental/boards", content))
                 {
-                    if (!response.IsSuccessStatusCode) return BadRequest(response.StatusCode.ToString());
+                    if (!response.IsSuccessStatusCode) return BadRequest(response.StatusCode);
                 }
 
                 using (var response = await httpClient.GetAsync(apiUrl + "rental/boards"))
                 {
-                    if (!response.IsSuccessStatusCode) return NotFound(response.StatusCode.ToString());
+                    if (!response.IsSuccessStatusCode) return NotFound(response.StatusCode);
                     else
                     {
                         string payload = await response.Content.ReadAsStringAsync();
-                        List<Product> productsGet = JsonConvert.DeserializeObject<List<Product>>(payload);
-                        return View(productsGet);
+                        productsGet = JsonConvert.DeserializeObject<List<Product>>(payload);
                     }
                 }
             }
+
+            return View(productsGet);
         }
 
         public IActionResult Board(int? id)
