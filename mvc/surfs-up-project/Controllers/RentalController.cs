@@ -18,7 +18,7 @@ namespace surfs_up_project.Controllers
             List<Product> productsGet = new List<Product>();
 
             List<Product> productsPost = new List<Product>();
-            productsPost = CsvConverter.ToProducts(csvDefault);
+            productsPost = CsvConverter.ToProducts(csvBoards);
             string json = JsonConvert.SerializeObject(productsPost);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -29,7 +29,7 @@ namespace surfs_up_project.Controllers
                     if (!response.IsSuccessStatusCode) return BadRequest(response.StatusCode);
                 }
 
-                using (var response = await httpClient.GetAsync(apiUrl + "rental/boards"))
+                using (var response = await httpClient.GetAsync(apiUrl + "/rental/boards"))
                 {
                     if (!response.IsSuccessStatusCode) return NotFound(response.StatusCode);
                     else
