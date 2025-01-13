@@ -13,5 +13,9 @@ namespace surfs_up_api.Models
         [Range(1, 100)]
         public int Quantity { get; set; }
 
+        public Equipment()
+        {
+            
+        }
     }
 }
