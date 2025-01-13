@@ -66,7 +66,6 @@ namespace surfs_up_api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-            app.UseMiddleware<LoggingMiddleware>();
 
             app.UseCors("MvcApp");
             app.UseCors("MobilKlient");
